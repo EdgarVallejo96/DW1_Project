@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2017 a las 11:20:21
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 5.6.31
+-- Tiempo de generación: 27-10-2017 a las 23:25:03
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -398,8 +396,8 @@ ALTER TABLE `asignaciones_estudiantes`
 -- Indices de la tabla `asignacion_asesor`
 --
 ALTER TABLE `asignacion_asesor`
-  ADD KEY `id_asesor` (`id_asesor`),
-  ADD KEY `id_alumno` (`id_alumno`);
+  ADD PRIMARY KEY (`id_asesor`,`id_alumno`),
+  ADD KEY `asignacion_asesor_ibfk_2` (`id_alumno`);
 
 --
 -- Indices de la tabla `asignacion_catedratico`
@@ -516,7 +514,7 @@ ALTER TABLE `facultad`
 -- Indices de la tabla `firmas_catedraticos`
 --
 ALTER TABLE `firmas_catedraticos`
-  ADD KEY `id_asignacion_catedratico` (`id_asignacion_catedratico`);
+  ADD PRIMARY KEY (`id_asignacion_catedratico`,`fecha_firma`,`hora_firma`);
 
 --
 -- Indices de la tabla `graduacion_completada`
@@ -637,7 +635,6 @@ ALTER TABLE `graduacion_completada`
 --
 ALTER TABLE `proceso_graduacion`
   ADD CONSTRAINT `proceso_graduacion_ibfk_1` FOREIGN KEY (`id_asignacion_estudiante`) REFERENCES `asignaciones_estudiantes` (`id_asignacion_estudiante`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
