@@ -3953,15 +3953,15 @@ tbody.collapse.in {
     .navbar-right ~ .navbar-right {
       margin-right: 0; } }
 .navbar-default {
-  background-color: black;
-  border-color: black; }
+  background-color: #960000;
+  border-color: #fff; }
   .navbar-default .navbar-brand {
     color: #fff; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
       color: #960000;
       background-color: #fff; }
   .navbar-default .navbar-text {
-    color: #777; }
+    color: #fff; }
   .navbar-default .navbar-nav > li > a {
     color: #fff; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -3969,7 +3969,7 @@ tbody.collapse.in {
       background-color: #fff; }
   .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
-    background-color: black; }
+    background-color: #750000; }
   .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
     color: #ccc;
     background-color: transparent; }
@@ -3981,9 +3981,9 @@ tbody.collapse.in {
       background-color: #888; }
   .navbar-default .navbar-collapse,
   .navbar-default .navbar-form {
-    border-color: black; }
+    border-color: #fff; }
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: black;
+    background-color: #750000;
     color: #fff; }
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -3993,7 +3993,7 @@ tbody.collapse.in {
         background-color: #fff; }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #fff;
-      background-color: black; }
+      background-color: #750000; }
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
@@ -8129,5 +8129,15 @@ button.close {
   margin: 0;
   overflow: visible;
   clip: auto; }
+
+.navbar {
+  margin-bottom: 0; }
+  .navbar .fa {
+    font-size: 18px; }
+
+.showcase {
+  background: url(../img/showcase.jpg) no-repeat -50px;
+  height: 600px;
+  padding: 30px 0; }
 
 /*# sourceMappingURL=app.css.map */
