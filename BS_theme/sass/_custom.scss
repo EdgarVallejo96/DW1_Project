@@ -3,7 +3,7 @@
     margin-bottom:0;
 
     a{
-
+        
         color: set-text-color($main-color);
     }
 
@@ -96,4 +96,10 @@ footer {
         color: set-text-color($main-color);
         }
     }
+}
+
+
+.container-signin {
+    padding:15%;
+    //padding-bottom:15%;
 }
