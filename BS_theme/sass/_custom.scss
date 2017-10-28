@@ -83,3 +83,17 @@ footer {
     color: set-text-color($main-color);
     
 }
+
+.table-responsive {
+    padding-right: 30px;
+}
+
+.section-overview {
+    li{
+    
+        .active {
+        background: darken($main-color, 10%);
+        color: set-text-color($main-color);
+        }
+    }
+}
