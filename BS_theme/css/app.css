@@ -8183,4 +8183,14 @@ footer {
   background: #630000;
   color: #ffffff; }
 
+.table-responsive {
+  padding-right: 30px; }
+
+.section-overview li .active {
+  background: #630000;
+  color: #ffffff; }
+
+.container-signin {
+  padding: 15%; }
+
 /*# sourceMappingURL=app.css.map */
