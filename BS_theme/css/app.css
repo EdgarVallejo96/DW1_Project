@@ -8198,4 +8198,25 @@ footer {
   padding-top: 50px;
   padding-bottom: 17%; }
 
+.formCatPost .btn {
+  cursor: default;
+  background-color: #FFF;
+  border-radius: 4px;
+  text-align: left; }
+.formCatPost .caret {
+  position: absolute;
+  right: 16px;
+  top: 16px; }
+.formCatPost .btn-default:hover, .formCatPost .btn-default:focus, .formCatPost .btn-default:active, .formCatPost .btn-default.active, .formCatPost .open .dropdown-toggle.btn-default {
+  background-color: #FFF; }
+.formCatPost .btn-group.open .dropdown-toggle {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); }
+.formCatPost .btn-group {
+  width: 100%; }
+.formCatPost .dropdown-menu {
+  width: 100%; }
+.formCatPost .btn-primary {
+  color: #fff;
+  background-color: #960000; }
+
 /*# sourceMappingURL=app.css.map */

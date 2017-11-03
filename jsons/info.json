@@ -1,0 +1,9 @@
+{
+    "id_estudiante":4,
+    "nombre":"Pedro",
+    "apellido":"Tesato",
+    "edad":16
+}
+/*
+Tiene los nombres de cada columna de una tabla en la base de datos que hice llamada "universidad".
+*/

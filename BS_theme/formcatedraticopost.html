@@ -40,13 +40,13 @@
 
     <div class="title-bar">
             <div class="container">
-                <h1>AGREGAR USUARIO</h1>
+                <h1>AGREGAR CATEDRÁTICO</h1>
                 
             </div>
         </div>
 
    <div class="main">
-       <div class="container">
+       <div class="container formCatPost">
            <div class="row">
                <div class="col-md-8">
                     <div class="panel panel-default">
@@ -56,21 +56,80 @@
                         <div class="panel-body">
                             <form>
                             <div class="form-group">
-                                <label>NOMBRE</label>
+                                <label>NOMBRES</label>
                                 <input type="text" class="form-control" placeholder="ingrese nombre">
                             </div>
                             <div class="form-group">
                                 <label>APELLIDOS</label>
                                 <input type="text" class="form-control" placeholder="ingrese apellido">
                             </div>
+                            <div class="form-group btn-group" role="group">
+                                    
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     EXPEDIENTE
+                                      <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">EXPEDIENTE COMPLETO</a></li>
+                                      <li><a href="#">EXPEDIENTE INCOMPLETO</a></li>
+                                    </ul>
+                                  </div>
+                                  <div class="form-group btn-group" role="group">
+                                        
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         ENTREVISTA   
+                                          <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a href="#">ENTREVISTA REALIZADA </a></li>
+                                          <li><a href="#">ENTREVISTA NO REALIZADA </a></li>
+                                        </ul>
+                                      </div>  
                             <div class="form-group">
-                                <label>EMAIL PERSONAL</label>
-                                <input type="text" class="form-control" placeholder="ingrese email">
-                            </div>
+                                <label>PUESTO ASPIRADO</label>
+                                <input type="text" class="form-control" placeholder="ingrese puesto">
+                            </div>              
                             <div class="form-group">
-                                <label>CARNÉ</label>
-                                <input type="text" class="form-control" placeholder="ingrese carne">
+                                <label>ACTA APROBACIÓN</label>
+                                <input type="text" class="form-control" placeholder="ingrese acta de aprobación">
                             </div>
+                            <div class="form-group btn-group" role="group">
+                                    
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     EXPEDIENTE EN VICERRECTORÍA
+                                      <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">EXPEDIENTE EN VICERRECTORÍA</a></li>
+                                      <li><a href="#">EXPEDIENTE NO EN VICERRECTORÍA</a></li>
+                                    </ul>
+                                  </div>
+                            <div class="form-group btn-group" role="group">
+                                    
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     ENTREVISTA EN VICERRECTORÍA
+                                      <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">ENTREVISTA EN VICERRECTORÍA</a></li>
+                                      <li><a href="#">ENTREVISTA NO EN VICERRECTORÍA</a></li>
+                                    </ul>
+                                  </div> 
+                                  <div class="form-group btn-group" role="group">
+                                        
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         APROBADO EN VICERRECTORÍA
+                                          <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a href="#">APROBADO EN VICERRECTORÍA</a></li>
+                                          <li><a href="#">APROBADO NO EN VICERRECTORÍA</a></li>
+                                        </ul>
+                                      </div>                       
+                            <div class="form-group">
+                                    <label>EMAIL PERSONAL</label>
+                                    <input type="text" class="form-control" placeholder="ingrese email">
+                                </div>
                             <div class="form-group">
                                 <label>EMAIL DE LA UNIVERSIDAD</label>
                                 <input type="text" class="form-control" placeholder="ingrese email">
@@ -87,42 +146,9 @@
                                 <label>TELEFONO DE CASA</label>
                                 <input type="text" class="form-control" placeholder="ingrese numero">
                             </div>
-                            <div class="form-group">
-                                <label>DPI</label>
-                                <input type="text" class="form-control" placeholder="ingrese DPI">
-                            </div>
-                            <div class="form-group">
-                                <label>NIT</label>
-                                <input type="text" class="form-control" placeholder="ingrese NIT">
-                            </div>
-                            <div class="form-group">
-                                <label>FECHA DE NACIMIENTO</label>
-                                <input type="text" class="form-control" placeholder="ingrese fecha">
-                            </div>
-                            <div class="form-group">
-                                <label>PROFESION</label>
-                                <input type="text" class="form-control" placeholder="ingrese preofesion">
-                            </div>
-                            <div class="form-group">
-                                <label>NUMERO DE COLEGIADO</label>
-                                <input type="text" class="form-control" placeholder="ingrese numero">
-                            </div>
-                            <div class="form-group">
-                                <label>COLEGIO PROFESIONAL DE EGRESO</label>
-                                <input type="text" class="form-control" placeholder="ingrese">
-                            </div>
-                            <div class="form-group">
-                                <label>ESTADO CIVIL</label>
-                                <input type="text" class="form-control" placeholder="ingrese estado">
-                            </div>
-                            <div class="form-group">
-                                <label>NACIONALIDAD</label>
-                                <input type="text" class="form-control" placeholder="ingrese nacionalidad">
-                            </div>
-
+                                                       
                             
-                            
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-primary">AGREGAR</button>
                         </form>
 
                         
@@ -130,8 +156,7 @@
                         
                     </div>
                </div>
-               <button type="submit" class="btn btn-default">BORRAR USUARIO</button>
-               <br><br>
+              
                
            </div>
        </div>
@@ -150,6 +175,10 @@
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-
+    <script>
+    $('.dropdown-menu a').on('click', function(){    
+        $(this).parent().parent().prev().html($(this).html() + '<span class="caret"></span>');    
+    })
+</script>
   </body>
 </html>
