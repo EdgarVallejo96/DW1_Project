@@ -8180,7 +8180,9 @@ button.close {
 
 footer {
   padding: 30px 0;
-  background: #fff; }
+  background: #960000; }
+  footer p {
+    color: #ffffff; }
 
 .table-responsive {
   padding-right: 30px; }
@@ -8191,5 +8193,9 @@ footer {
 
 .container-signin {
   padding: 15%; }
+
+.menuAdmin {
+  padding-top: 50px;
+  padding-bottom: 17%; }
 
 /*# sourceMappingURL=app.css.map */
