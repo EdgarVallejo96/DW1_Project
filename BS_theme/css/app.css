@@ -8198,23 +8198,23 @@ footer {
   padding-top: 50px;
   padding-bottom: 17%; }
 
-.formCatPost .btn {
+.formCustomss .btn {
   cursor: default;
   background-color: #FFF;
   border-radius: 4px;
   text-align: left; }
-.formCatPost .caret {
+.formCustomss .caret {
   right: 16px;
   top: 16px; }
-.formCatPost .btn-default:hover, .formCatPost .btn-default:focus, .formCatPost .btn-default:active, .formCatPost .btn-default.active, .formCatPost .open .dropdown-toggle.btn-default {
+.formCustomss .btn-default:hover, .formCustomss .btn-default:focus, .formCustomss .btn-default:active, .formCustomss .btn-default.active, .formCustomss .open .dropdown-toggle.btn-default {
   background-color: #FFF; }
-.formCatPost .btn-group.open .dropdown-toggle {
+.formCustomss .btn-group.open .dropdown-toggle {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); }
-.formCatPost .btn-group {
+.formCustomss .btn-group {
   width: 100%; }
-.formCatPost .dropdown-menu {
+.formCustomss .dropdown-menu {
   width: 100%; }
-.formCatPost .btn-primary {
+.formCustomss .btn-primary {
   color: #fff;
   background-color: #960000; }
 
