@@ -14,6 +14,7 @@
 
   <body>
 
+<<<<<<< HEAD
     <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
@@ -37,6 +38,32 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
+=======
+        <nav class="navbar navbar-default">
+                <div class="">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    
+                  </div>
+                  <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li><a href="lectura_e.html">Lectura</a></li>
+                      <li class="active"><a href="mantenimiento.html">Mantenimiento</a></li>
+                      <li><a href="firmas.html">Firmas</a></li>
+                      <li><a href="ayuda.html">Ayuda</a></li>
+                      <li><a href="cerrar_sesion.html">Cerrar Sesión</a></li>
+                      
+                    </ul>
+                   
+                  </div><!--/.nav-collapse -->
+                </div>
+              </nav>
+>>>>>>> SubMaster
 
     <div class="title-bar">
             <div class="container">
@@ -46,7 +73,7 @@
         </div>
 
    <div class="main">
-       <div class="container formCatPost">
+       <div class="container">
            <div class="row">
                <div class="col-md-8">
                     <div class="panel panel-default">
@@ -63,28 +90,26 @@
                                 <label>APELLIDOS</label>
                                 <input type="text" class="form-control" placeholder="ingrese apellido">
                             </div>
-                            <div class="form-group btn-group" role="group">
+                            <label>EXPEDIENTE</label><br>
+                            <div class="form-group btn-group" data-toggle="buttons" role="group">
                                     
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     EXPEDIENTE
-                                      <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a href="#">EXPEDIENTE COMPLETO</a></li>
-                                      <li><a href="#">EXPEDIENTE INCOMPLETO</a></li>
-                                    </ul>
-                                  </div>
-                                  <div class="form-group btn-group" role="group">
-                                        
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         ENTREVISTA   
-                                          <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="#">ENTREVISTA REALIZADA </a></li>
-                                          <li><a href="#">ENTREVISTA NO REALIZADA </a></li>
-                                        </ul>
-                                      </div>  
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off" active>EXPEDIENTE COMPLETO
+                                    </label>
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">EXPEDIENTE INCOMPLETO
+                                    </label>
+                            </div>
+                            <br><label>ENTREVISTA</label><br>
+                            <div class="form-group btn-group" data-toggle="buttons" role="group">
+                                    
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">ENTREVISTA REALIZADA
+                                    </label>
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">ENTREVISTA NO REALIZADA
+                                    </label>
+                            </div>      
                             <div class="form-group">
                                 <label>PUESTO ASPIRADO</label>
                                 <input type="text" class="form-control" placeholder="ingrese puesto">
@@ -93,46 +118,45 @@
                                 <label>ACTA APROBACIÓN</label>
                                 <input type="text" class="form-control" placeholder="ingrese acta de aprobación">
                             </div>
-                            <div class="form-group btn-group" role="group">
+                            <br><label>EXPEDIENTE EN VICERRECTORÍA</label><br>
+                            <div class="form-group btn-group" data-toggle="buttons" role="group">
                                     
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     EXPEDIENTE EN VICERRECTORÍA
-                                      <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a href="#">EXPEDIENTE EN VICERRECTORÍA</a></li>
-                                      <li><a href="#">EXPEDIENTE NO EN VICERRECTORÍA</a></li>
-                                    </ul>
-                                  </div>
-                            <div class="form-group btn-group" role="group">
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">SI
+                                    </label>
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">NO
+                                    </label>
+                            </div>
+                            <br><label>ENTREVISTA EN VICERRECTORÍA</label><br>
+                            <div class="form-group btn-group" data-toggle="buttons" role="group">
                                     
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     ENTREVISTA EN VICERRECTORÍA
-                                      <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a href="#">ENTREVISTA EN VICERRECTORÍA</a></li>
-                                      <li><a href="#">ENTREVISTA NO EN VICERRECTORÍA</a></li>
-                                    </ul>
-                                  </div> 
-                                  <div class="form-group btn-group" role="group">
-                                        
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                         APROBADO EN VICERRECTORÍA
-                                          <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                          <li><a href="#">APROBADO EN VICERRECTORÍA</a></li>
-                                          <li><a href="#">APROBADO NO EN VICERRECTORÍA</a></li>
-                                        </ul>
-                                      </div>                       
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">SI
+                                    </label>
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">NO
+                                    </label>
+                            </div>
+                            <br><label>APROBADO EN VICERRECTORÍA</label><br>
+                            <div class="form-group btn-group" data-toggle="buttons" role="group">
+                                    
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">SI
+                                    </label>
+                                    <label class="btn btn-default">
+                                            <input type="radio" autcomplete="off">NO
+                                    </label>
+                            </div>
+                                      
+                            <!--info de todos-->
                             <div class="form-group">
                                     <label>EMAIL PERSONAL</label>
-                                    <input type="text" class="form-control" placeholder="ingrese email">
+                                    <input type="email" class="form-control" placeholder="ingrese email">
                                 </div>
                             <div class="form-group">
                                 <label>EMAIL DE LA UNIVERSIDAD</label>
-                                <input type="text" class="form-control" placeholder="ingrese email">
+                                <input type="email" class="form-control" placeholder="ingrese email">
                             </div>
                             <div class="form-group">
                                 <label>DIRECCIÓN DE VIVIENDA</label>
@@ -140,11 +164,11 @@
                             </div>
                             <div class="form-group">
                                 <label>TELEFONO CELULAR</label>
-                                <input type="text" class="form-control" placeholder="ingrese numero">
+                                <input type="number" class="form-control" placeholder="ingrese numero">
                             </div>
                             <div class="form-group">
                                 <label>TELEFONO DE CASA</label>
-                                <input type="text" class="form-control" placeholder="ingrese numero">
+                                <input type="number" class="form-control" placeholder="ingrese numero">
                             </div>
                                                        
                             
