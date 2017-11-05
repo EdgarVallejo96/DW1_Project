@@ -1,0 +1,3 @@
+BS_theme/
+    index.html  
+    lectura.html
