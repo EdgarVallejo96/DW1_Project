@@ -1,3 +1,7 @@
 BS_theme/
     index.html  
     lectura.html
+    ayuda.html
+    firmas.html
+    mantenimiento.html
+    
