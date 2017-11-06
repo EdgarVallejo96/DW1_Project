@@ -47,7 +47,7 @@
         </div>
 
    <div class="main">
-       <div class="container">
+       <div class="container formulariosGenerales">
            <div class="row">
                <div class="col-md-8">
                     <div class="panel panel-default">
@@ -58,39 +58,39 @@
                             <form>
                              <div class="form-group">
                                 <label>CARNÉ</label>
-                                <input type="number" class="form-control" placeholder="ingrese carne">
+                                <input type="number" class="form-control" placeholder="ingrese carne" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NOMBRES</label>
-                                <input type="text" class="form-control" placeholder="ingrese nombre">
+                                <input type="text" class="form-control" placeholder="ingrese nombre" required="required">
                             </div>
                             <div class="form-group">
                                 <label>APELLIDOS</label>
-                                <input type="text" class="form-control" placeholder="ingrese apellido">
+                                <input type="text" class="form-control" placeholder="ingrese apellido" required="required">
                             </div>
                             <div class="form-group">
                                     <label>DPI</label>
-                                    <input type="number" class="form-control" placeholder="ingrese DPI">
+                                    <input type="number" class="form-control" placeholder="ingrese DPI" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="text" class="form-control" placeholder="ingrese NIT">
+                                <input type="text" class="form-control" placeholder="ingrese NIT" required="required">
                             </div>
                             <div class="form-group">
                                 <label>FECHA DE NACIMIENTO</label>
-                                <input type="date" class="form-control" placeholder="ingrese fecha">
+                                <input type="date" class="form-control" placeholder="ingrese fecha" required="required">
                             </div>
                             <div class="form-group">
                                 <label>PROFESION</label>
-                                <input type="text" class="form-control" placeholder="ingrese preofesion">
+                                <input type="text" class="form-control" placeholder="ingrese preofesion" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NUMERO DE COLEGIADO</label>
-                                <input type="number" class="form-control" placeholder="ingrese numero">
+                                <input type="number" class="form-control" placeholder="ingrese numero" required="required">
                             </div>
                             <div class="form-group">
                                 <label>COLEGIO PROFESIONAL DE EGRESO</label>
-                                <input type="text" class="form-control" placeholder="ingrese">
+                                <input type="text" class="form-control" placeholder="ingrese" required="required">
                             </div>
                             <label>ESTADO CIVIL</label><br>
                             <div class="form-group btn-group" data-toggle="buttons" role="group">
@@ -104,7 +104,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NACIONALIDAD</label>
-                                <input type="text" class="form-control" placeholder="ingrese nacionalidad">
+                                <input type="text" class="form-control" placeholder="ingrese nacionalidad" required="required">
                             </div>
                             <label>ES ASESOR</label><br>
                             <div class="form-group btn-group" data-toggle="buttons" role="group">
@@ -149,7 +149,9 @@
                                 <input type="number" class="form-control" placeholder="ingrese numero">
                             </div>                                                  
 
-                            <button type="submit" class="btn btn-primary">AGREGAR</button>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    AGREGAR
+                            </button>
                         </form>
 
                         
@@ -157,11 +159,32 @@
                         
                     </div>
                </div>
-             
+              
                
            </div>
        </div>
    </div>
+
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Desea guardar los cambios?</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
   
 

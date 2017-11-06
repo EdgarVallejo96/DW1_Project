@@ -68,39 +68,39 @@
                             <form>
                              <div class="form-group">
                                 <label>CARNÉ</label>
-                                <input type="number" class="form-control" placeholder="ingrese carne">
+                                <input type="number" class="form-control" placeholder="ingrese carne" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NOMBRES</label>
-                                <input type="text" class="form-control" placeholder="ingrese nombre">
+                                <input type="text" class="form-control" placeholder="ingrese nombre" required="required">
                             </div>
                             <div class="form-group">
                                 <label>APELLIDOS</label>
-                                <input type="text" class="form-control" placeholder="ingrese apellido">
+                                <input type="text" class="form-control" placeholder="ingrese apellido" required="required">
                             </div>
                             <div class="form-group">
                                     <label>DPI</label>
-                                    <input type="number" class="form-control" placeholder="ingrese DPI">
+                                    <input type="number" class="form-control" placeholder="ingrese DPI" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="text" class="form-control" placeholder="ingrese NIT">
+                                <input type="text" class="form-control" placeholder="ingrese NIT" required="required">
                             </div>
                             <div class="form-group">
                                 <label>FECHA DE NACIMIENTO</label>
-                                <input type="date" class="form-control" placeholder="ingrese fecha">
+                                <input type="date" class="form-control" placeholder="ingrese fecha" required="required">
                             </div>
                             <div class="form-group">
                                 <label>PROFESION</label>
-                                <input type="text" class="form-control" placeholder="ingrese preofesion">
+                                <input type="text" class="form-control" placeholder="ingrese preofesion" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NUMERO DE COLEGIADO</label>
-                                <input type="number" class="form-control" placeholder="ingrese numero">
+                                <input type="number" class="form-control" placeholder="ingrese numero" required="required">
                             </div>
                             <div class="form-group">
                                 <label>COLEGIO PROFESIONAL DE EGRESO</label>
-                                <input type="text" class="form-control" placeholder="ingrese">
+                                <input type="text" class="form-control" placeholder="ingrese" required="required">
                             </div>
                             <label>ESTADO CIVIL</label><br>
                             <div class="form-group btn-group" data-toggle="buttons" role="group">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NACIONALIDAD</label>
-                                <input type="text" class="form-control" placeholder="ingrese nacionalidad">
+                                <input type="text" class="form-control" placeholder="ingrese nacionalidad" required="required">
                             </div>
                             <label>ES ASESOR</label><br>
                             <div class="form-group btn-group" data-toggle="buttons" role="group">
@@ -140,26 +140,28 @@
                             <!--info de todos-->
                             <div class="form-group">
                                     <label>EMAIL PERSONAL</label>
-                                    <input type="email" class="form-control" placeholder="ingrese email">
+                                    <input type="email" class="form-control" placeholder="ingrese email" required="required">
                                 </div>
                             <div class="form-group">
                                 <label>EMAIL DE LA UNIVERSIDAD</label>
-                                <input type="email" class="form-control" placeholder="ingrese email">
+                                <input type="email" class="form-control" placeholder="ingrese email" required="required">
                             </div>
                             <div class="form-group">
                                 <label>DIRECCIÓN DE VIVIENDA</label>
-                                <input type="text" class="form-control" placeholder="ingrese direccion">
+                                <input type="text" class="form-control" placeholder="ingrese direccion" required="required">
                             </div>
                             <div class="form-group">
                                 <label>TELEFONO CELULAR</label>
-                                <input type="number" class="form-control" placeholder="ingrese numero">
+                                <input type="number" class="form-control" placeholder="ingrese numero" required="required">
                             </div>
                             <div class="form-group">
                                 <label>TELEFONO DE CASA</label>
-                                <input type="number" class="form-control" placeholder="ingrese numero">
-                            </div>                                                  
+                                <input type="number" class="form-control" placeholder="ingrese numero" required="required">
+                            </div>                                                 
 
-                            <button type="submit" class="btn btn-primary">AGREGAR</button>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    MODIFICAR
+                            </button>
                         </form>
 
                         
@@ -167,11 +169,15 @@
                         
                     </div>
                </div>
-             
+              
                
            </div>
        </div>
    </div>
+
+
+      
+      
 
   
 

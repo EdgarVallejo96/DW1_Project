@@ -150,3 +150,10 @@ footer {
     }
    
 }
+
+.formulariosGenerales {
+    :required  {  
+        background: url(fa-warning) no-repeat;
+        background-position:right top;
+       }
+}

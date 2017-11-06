@@ -47,7 +47,7 @@
         </div>
 
    <div class="main">
-       <div class="container">
+       <div class="container formulariosGenerales">
            <div class="row">
                <div class="col-md-8">
                     <div class="panel panel-default">
@@ -58,25 +58,27 @@
                             <form>
                             <div class="form-group">
                                 <label>ID CURSO</label>
-                                <input type="number" class="form-control" placeholder="ingrese curso">
+                                <input type="number" class="form-control" placeholder="ingrese curso" required="required">
                             </div>
                            <div class="form-group">
                                 <label>AÑO</label>
-                                <input type="date" class="form-control" placeholder="ingrese año">
+                                <input type="date" class="form-control" placeholder="ingrese año" required="required">
                             </div>
                             <div class="form-group">
                                 <label>SEMESTRE</label>
-                                <input type="number" class="form-control" placeholder="ingrese id">
+                                <input type="number" class="form-control" placeholder="ingrese id" required="required">
                             </div>
                             <div class="form-group">
                                 <label>PERÍODOS SEMANALES</label>
-                                <input type="number" class="form-control" placeholder="ingrese id">
+                                <input type="number" class="form-control" placeholder="ingrese id" required="required">
                             </div>
                             
 
                             
                             
-                            <button type="submit" class="btn btn-primary">AGREGAR</button>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    AGREGAR
+                            </button>
                         </form>
 
                         
@@ -84,11 +86,34 @@
                         
                     </div>
                </div>
-               
+              
                
            </div>
        </div>
    </div>
+
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Desea guardar los cambios?</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
   
 
