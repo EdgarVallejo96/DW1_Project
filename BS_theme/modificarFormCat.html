@@ -75,25 +75,23 @@
                                 <input type="text" class="form-control" placeholder="ingrese apellido">
                             </div>
                             <label>EXPEDIENTE</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off" active>EXPEDIENTE COMPLETO
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">EXPEDIENTE INCOMPLETO
-                                    </label>
-                            </div>
+                            <div data-toggle="buttons">
+                                    <div class="btn-group">
+                                        <label class="btn btn-default"> 
+                                        <input type="radio" name="type" id="type" value="completo" class="sr-only" required>COMPLETO</label>
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="type" id="type" value="incompleto" class="sr-only" required>INCOMPLETOE</label>
+                                    </div>
+                            </div><br>
                             <br><label>ENTREVISTA</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type" id="type" value="realizada" class="sr-only" required>RELIZADA</label>
                                     <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">ENTREVISTA REALIZADA
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">ENTREVISTA NO REALIZADA
-                                    </label>
-                            </div>      
+                                        <input type="radio" name="type" id="type" value="no_realizada" class="sr-only" required>NO NO REALIZADA</label>
+                                </div>
+                            </div><br>      
                             <div class="form-group">
                                 <label>PUESTO ASPIRADO</label>
                                 <input type="text" class="form-control" placeholder="ingrese puesto">
@@ -103,35 +101,32 @@
                                 <input type="text" class="form-control" placeholder="ingrese acta de aprobación">
                             </div>
                             <br><label>EXPEDIENTE EN VICERRECTORÍA</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type" id="type" value="si" class="sr-only" required>SI</label>
                                     <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">SI
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">NO
-                                    </label>
-                            </div>
+                                        <input type="radio" name="type" id="type" value="no" class="sr-only" required>NO</label>
+                                </div>
+                            </div><br>
                             <br><label>ENTREVISTA EN VICERRECTORÍA</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type" id="type" value="si" class="sr-only" required>SI</label>
                                     <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">SI
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">NO
-                                    </label>
-                            </div>
+                                        <input type="radio" name="type" id="type" value="no" class="sr-only" required>NO</label>
+                                </div>
+                            </div><br>
                             <br><label>APROBADO EN VICERRECTORÍA</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type" id="type" value="si" class="sr-only" required>SI</label>
                                     <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">SI
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">NO
-                                    </label>
-                            </div>
+                                        <input type="radio" name="type" id="type" value="no" class="sr-only" required>NO</label>
+                                </div>
+                            </div><br>
                                       
                             <!--info de todos-->
                             <div class="form-group">
@@ -172,26 +167,6 @@
        </div>
    </div>
 
-
-      
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Desea guardar los cambios?</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
   
 
