@@ -1,0 +1,18 @@
+BS_theme/
+    ayuda.html
+    borrar.html
+    error404.html
+    firmas.html
+    formAsesorNuevo.html
+    formCatedraticoPost.html
+    formCursoNuevo.html
+    formEmpleadoNuevo.html
+    index.html
+    lectura.html
+    mantenimiento.html
+    modificar.html
+    modificarAsesor.html
+    modificarCurso.html
+    modificarFormCat.html
+    modificarFormEmp.html
+    
