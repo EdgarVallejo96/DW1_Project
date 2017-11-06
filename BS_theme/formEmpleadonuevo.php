@@ -2,7 +2,7 @@
  $message = '';  
  $error = '';  
 
-switch(empty($POST)) {
+/*switch(empty($POST)) {
     case empty($_POST["carne"]):
     $error = "<label class='text-danger'>Ingrese carné</label>";
     break;
@@ -75,7 +75,7 @@ switch(empty($POST)) {
     $error = "<label class='text-danger'>Ingrese telefono</label>";
     break;
 
-    case file_exists('empleado.json'):
+   case file_exists('empleado.json'):*/     
     if(file_exists('empleado.json'))  
     {  
         
@@ -99,22 +99,24 @@ switch(empty($POST)) {
               'tipo_correo2'          =>     $_POST["tipo_correo2"],  
               'Address'     =>     $_POST["Address"],
               'tipo_telefono1'     =>     $_POST["tipo_telefono1"],
-              'tipo_telefono2'          =>     $_POST["tipo_telefono2"]
+              'tipo_telefono2'          =>     $_POST["tipo_telefono2"],
               
               
-         );  
-         $array_data[] = $extra;  
-         $final_data = json_encode($array_data);  
-         if(file_put_contents('empleado.json', $final_data))  
-         {  
-              $message = "<label class='text-success'>Datos enviados con exito</p>";  
-         }  
-    }  
-    else  
-    {  
-         $error = 'JSON File no existe';  
-    }
-}
+            );  
+            $array_data[] = $extra;  
+            $final_data = json_encode($array_data, JSON_PRETTY_PRINT); 
+             
+            if(file_put_contents('empleado.json', $final_data))  
+            {  
+                 $message = "<label class='text-success'>Datos enviados con exito</p>";  
+            }  
+       }  
+       else  
+       {  
+            $error = 'JSON File not exits';  
+       } 
+       
+   //}
 
   
  ?> 
@@ -180,7 +182,7 @@ switch(empty($POST)) {
                             <form method="post">
                              <div class="form-group">
                                 <label>CARNÉ</label>
-                                <input type="number" name="carné" class="form-control" placeholder="ingrese carne" required="required">
+                                <input type="number" name="carne" class="form-control" placeholder="ingrese carne" required="required">
                             </div>
                             <div class="form-group">
                                 <label>NOMBRES</label>

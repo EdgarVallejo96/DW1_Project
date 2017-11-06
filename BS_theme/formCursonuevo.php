@@ -32,7 +32,7 @@ switch(empty($POST)) {
                 
          );  
          $array_data[] = $extra;  
-         $final_data = json_encode($array_data);  
+         $final_data = json_encode($array_data, JSON_PRETTY_PRINT);  
          if(file_put_contents('cursos.json', $final_data))  
          {  
               $message = "<label class='text-success'>Datos enviados con exito</p>";  

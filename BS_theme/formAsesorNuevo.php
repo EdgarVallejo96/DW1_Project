@@ -2,7 +2,7 @@
  $message = '';  
  $error = '';  
 
-switch(empty($POST)) {
+/*switch(empty($POST)) {
     case empty($_POST["id_alumno"]):
     $error = "<label class='text-danger'>Ingrese apellidos</label>";  
     break;
@@ -20,7 +20,7 @@ switch(empty($POST)) {
     break;
   
 
-    case file_exists('asesor.json'):
+    case file_exists('asesor.json'):*/
     if(file_exists('asesor.json'))  
     {  
         
@@ -30,12 +30,14 @@ switch(empty($POST)) {
               'id_alumno'               =>     $_POST['id_alumno'],  
               'id_asesor'          =>     $_POST["id_asesor"],  
               'fecha_asignacion'     =>     $_POST["fecha_asignacion"],
-              'asignacionvigente'               =>     $_POST["asignacionvigente"]
+              'asignacionvigente'               =>     $_POST["asignacionvigente"],
               
               
          );  
          $array_data[] = $extra;  
-         $final_data = json_encode($array_data);  
+         $final_data = json_encode($array_data, JSON_PRETTY_PRINT);
+         
+         
          if(file_put_contents('asesor.json', $final_data))  
          {  
               $message = "<label class='text-success'>Datos enviados con exito</p>";  
@@ -45,7 +47,7 @@ switch(empty($POST)) {
     {  
          $error = 'JSON File no existe';  
     }
-}
+//}
 
   
  ?> 
