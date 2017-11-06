@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <?php
     $dbServername = "localhost";
     $dbUsername = "root";
@@ -6,7 +8,6 @@
 
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
     <title>Lecturas</title>
