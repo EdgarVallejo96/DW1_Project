@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2017 a las 11:15:55
+-- Tiempo de generación: 06-11-2017 a las 22:12:56
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -19,6 +19,52 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto_db`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_empleado_p` INT(11), `carne_p` INT(11), `nombres_p` VARCHAR(50), `apellidos_p` VARCHAR(50), `dpi_p` INT(13), `nit_p` INT(13), `fecha_nacimiento_p` DATE, `profesion_p` VARCHAR(50), `numero_colegiado_p` INT(15), `colegio_profesional_p` VARCHAR(50), `estado_civil_p` VARCHAR(30), `nacionalidad_p` VARCHAR(40), `es_asesor_p` TINYINT(1), `activo_p` TINYINT(1), `es_catedratico_p` TINYINT(1), `id_de_rol_p` INT(11))  BEGIN
+	DECLARE validacion_cat tinyint(1);
+	DECLARE validacion_ase tinyint(1);
+	DECLARE id_employee int(11);
+	
+   INSERT INTO `empleado_laborando`(`id_empleado`,
+                                    `carne`,
+                                    `nombres`,
+                                    `apellidos`,
+                                    `dpi`,
+                                    `nit`,
+                                    `fecha_nacimiento`,
+                                    `profesion`,
+                                    `numero_colegiado`,
+                                    `colegio_profesional`,
+                                    `estado_civil`,
+                                    `nacionalidad`,
+                                    `es_asesor`,
+                                    `activo`,
+                                    `es_catedratico`,
+                                    `id_de_rol`)
+        VALUES (null,carne_p,nombres_p,apellidos_p,dpi_p,nit_p,fecha_nacimiento_p,profesion_p,numero_colegiado_p,
+   colegio_profesional_p,estado_civil_p,nacionalidad_p,es_asesor_p,activo_p,es_catedratico_p,id_de_rol_p);
+   select es_asesor from Empleado_Laborando order by id_empleado ASC limit 1 into validacion_ase;
+   select es_catedratico from Empleado_Laborando order by id_empleado ASC limit 1 into validacion_cat;
+   select id_empleado from Empleado_Laborando order by id_empleado ASC limit 1 into id_employee;
+   if validacion_ase is true 
+   THEN
+   	select * from empleado_laborando;
+      INSERT INTO `asesores`(`id_asesor`, `id_empleado`, `num_asesorados`)
+           VALUES (NULL, id_employee, '0');
+   END IF;
+	if validacion_cat is true 
+   THEN
+      INSERT INTO `catedraticos`(`id_catedratico`, `id_empleado`)
+           VALUES (NULL, id_employee);
+   END IF;
+   
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -209,6 +255,17 @@ CREATE TABLE `correspondencia` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `credenciales_sistema`
+--
+
+CREATE TABLE `credenciales_sistema` (
+  `id_sistema` int(11) NOT NULL,
+  `password_sistema` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `cursos`
 --
 
@@ -267,6 +324,44 @@ CREATE TABLE `empleado_laborando` (
   `es_catedratico` tinyint(1) NOT NULL,
   `id_de_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `empleado_laborando`
+--
+
+INSERT INTO `empleado_laborando` (`id_empleado`, `carne`, `nombres`, `apellidos`, `dpi`, `nit`, `fecha_nacimiento`, `profesion`, `numero_colegiado`, `colegio_profesional`, `estado_civil`, `nacionalidad`, `es_asesor`, `activo`, `es_catedratico`, `id_de_rol`) VALUES
+(1001, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(1002, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5556, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5557, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5558, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5559, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5560, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5561, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5562, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5563, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5564, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5565, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5566, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5567, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5568, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5569, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5570, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 1, 0, 1, 0),
+(5571, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 1, 0, 1, 0),
+(5572, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5573, 2147483647, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
+(5574, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '0000-00-00', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5575, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '0000-00-00', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5576, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5577, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5578, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5579, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
+(5580, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 1, 0),
+(5581, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 0, 1, 0),
+(5582, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 1, 0),
+(5583, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 0, 1, 0),
+(5584, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 1, 1, 0),
+(5585, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -385,6 +480,13 @@ CREATE TABLE `roles_de_sistema` (
   `nombre_rol` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `roles_de_sistema`
+--
+
+INSERT INTO `roles_de_sistema` (`id_de_rol`, `nombre_rol`) VALUES
+(0, 'Lectura');
+
 -- --------------------------------------------------------
 
 --
@@ -496,6 +598,12 @@ ALTER TABLE `correspondencia`
   ADD PRIMARY KEY (`fecha_reporte`,`id_correspondiente`);
 
 --
+-- Indices de la tabla `credenciales_sistema`
+--
+ALTER TABLE `credenciales_sistema`
+  ADD PRIMARY KEY (`id_sistema`,`password_sistema`);
+
+--
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
@@ -593,12 +701,12 @@ ALTER TABLE `telefonos`
 -- AUTO_INCREMENT de la tabla `asesores`
 --
 ALTER TABLE `asesores`
-  MODIFY `id_asesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id_asesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT =1001;;
 --
 -- AUTO_INCREMENT de la tabla `asignacion_catedratico`
 --
 ALTER TABLE `asignacion_catedratico`
-  MODIFY `id_asignacion_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id_asignacion_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;;
 --
 -- AUTO_INCREMENT de la tabla `catedraticos`
 --
@@ -608,12 +716,15 @@ ALTER TABLE `catedraticos`
 -- AUTO_INCREMENT de la tabla `catedratico_postulado`
 --
 ALTER TABLE `catedratico_postulado`
-  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 --
 -- AUTO_INCREMENT de la tabla `empleado_laborando`
 --
 ALTER TABLE `empleado_laborando`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  
+ALTER TABLE `DIRECCIONES`
+  MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 --
 -- Restricciones para tablas volcadas
 --
@@ -684,6 +795,12 @@ ALTER TABLE `carreras`
 --
 ALTER TABLE `catedraticos`
   ADD CONSTRAINT `catedraticos_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleado_laborando` (`id_empleado`);
+
+--
+-- Filtros para la tabla `credenciales_sistema`
+--
+ALTER TABLE `credenciales_sistema`
+  ADD CONSTRAINT `credenciales_sistema_ibfk_1` FOREIGN KEY (`id_sistema`) REFERENCES `empleado_laborando` (`id_empleado`);
 
 --
 -- Filtros para la tabla `cursos`
