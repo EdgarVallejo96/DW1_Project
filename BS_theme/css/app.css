@@ -8180,8 +8180,9 @@ button.close {
 
 footer {
   padding: 30px 0;
-  background: #630000;
-  color: #ffffff; }
+  background: #960000; }
+  footer p {
+    color: #ffffff; }
 
 .table-responsive {
   padding-right: 30px; }
@@ -8192,5 +8193,36 @@ footer {
 
 .container-signin {
   padding: 15%; }
+
+.menuAdmin {
+  padding-top: 50px;
+  padding-bottom: 17%; }
+
+.containerEdgar .btn {
+  cursor: default;
+  background-color: #FFF;
+  border-radius: 4px;
+  text-align: left; }
+.containerEdgar .caret {
+  right: 16px;
+  top: 16px; }
+.containerEdgar .btn-default:hover, .containerEdgar .btn-default:focus, .containerEdgar .btn-default:active, .containerEdgar .btn-default.active, .containerEdgar .open .dropdown-toggle.btn-default {
+  background-color: #FFF; }
+.containerEdgar .btn-group.open .dropdown-toggle {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); }
+.containerEdgar .btn-group {
+  width: 100%; }
+.containerEdgar .dropdown-menu {
+  width: 100%; }
+.containerEdgar .btn-primary {
+  color: #fff;
+  background-color: #960000; }
+
+.containerLectu .page-header {
+  text-align: center; }
+
+.formulariosGenerales :required {
+  background: url(fa-warning) no-repeat;
+  background-position: right top; }
 
 /*# sourceMappingURL=app.css.map */
