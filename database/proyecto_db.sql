@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2017 a las 09:10:37
+-- Tiempo de generación: 06-11-2017 a las 11:15:55
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -19,23 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto_db`
 --
-
-DELIMITER $$
---
--- Procedimientos
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AsignarAsesor` (`idasesor` INT(11), `idalumno` INT(11))  BEGIN
-   INSERT INTO asignacion_asesor(id_asesor,
-                                 id_alumno,
-                                 fecha_asignacion,
-                                 asignacion_vigente)
-        VALUES (idasesor,
-                idalumno,
-                now(),
-                TRUE);
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -190,6 +173,15 @@ CREATE TABLE `catedratico_postulado` (
   `entrevista_vcr` tinyint(1) NOT NULL,
   `aprobado_vcr` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `catedratico_postulado`
+--
+
+INSERT INTO `catedratico_postulado` (`id_postulante`, `nombres`, `apellidos`, `expediente_completo`, `entrevista_realizada`, `puesto_aspirado`, `acta_aprobacion`, `expediente_en_VCR`, `entrevista_vcr`, `aprobado_vcr`) VALUES
+(458, 'yujtyjhf', 'juyjtrujrtj', 1, 0, 'yjuttfhrj7r7i', 4645, 0, 1, 0),
+(1001, 'rgergtert', 'ertwertwtrt', 1, 1, 'dfasdffdsf', 23545, 1, 1, 1),
+(1002, 'gjhgjgk', 'gnfcfgdcrt', 0, 0, 'uitiktukhujkhk', 354548, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -594,6 +586,35 @@ ALTER TABLE `telefonos`
   ADD PRIMARY KEY (`numero`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `asesores`
+--
+ALTER TABLE `asesores`
+  MODIFY `id_asesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `asignacion_catedratico`
+--
+ALTER TABLE `asignacion_catedratico`
+  MODIFY `id_asignacion_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `catedraticos`
+--
+ALTER TABLE `catedraticos`
+  MODIFY `id_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `catedratico_postulado`
+--
+ALTER TABLE `catedratico_postulado`
+  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+--
+-- AUTO_INCREMENT de la tabla `empleado_laborando`
+--
+ALTER TABLE `empleado_laborando`
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -682,9 +703,6 @@ ALTER TABLE `documentos_estudiante`
 ALTER TABLE `empleado_laborando`
   ADD CONSTRAINT `empleado_laborando_ibfk_1` FOREIGN KEY (`id_de_rol`) REFERENCES `roles_de_sistema` (`id_de_rol`);
 
---
--- Filtros para la tabla `estudiantes`
---
 --
 -- Filtros para la tabla `facultad`
 --
