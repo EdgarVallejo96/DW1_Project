@@ -80,20 +80,21 @@
                             </div>
                             
                             <label>ASIGNACIÓN VIGENTE</label><br>
-                            <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                    
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off" active>VIGENTE
-                                    </label>
-                                    <label class="btn btn-default">
-                                            <input type="radio" autcomplete="off">NO VIGENTE
-                                    </label>
-                            </div><br>
+                            <div data-toggle="buttons">
+                                    <div class="btn-group">
+                                        <label class="btn btn-default"> 
+                                        <input type="radio" name="type" id="type" value="vigente" class="sr-only" required>VIGENTE</label>
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="type" id="type" value="no vigente" class="sr-only" required>NO VIGENTE</label>
+                                    </div>
+                                </div><br>
                             
 
                             
                             
-                            <button type="submit" class="btn btn-primary">AGREGAR</button>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    MODIFICAR
+                            </button>
                         </form>
 
                         
@@ -101,11 +102,15 @@
                         
                     </div>
                </div>
-               
+              
                
            </div>
        </div>
    </div>
+
+
+      
+     
 
   
 

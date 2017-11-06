@@ -1,0 +1,50 @@
+[
+    {
+        "nombres": "1",
+        "apellidos": "1",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Asesor",
+        "acta_aprobacion": "1",
+        "expedienteVCR": "0",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "1@11",
+        "tipo_correo2": "1@11",
+        "Address": "11",
+        "tipo_telefono1": "1",
+        "tipo_telefono2": "1"
+    },
+    {
+        "nombres": "EDGARITO",
+        "apellidos": "vallejo",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "2",
+        "expedienteVCR": "1",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "edgarito@edgarito",
+        "tipo_correo2": "edgarito@edgarito",
+        "Address": "1",
+        "tipo_telefono1": "1",
+        "tipo_telefono2": "1"
+    },
+    {
+        "nombres": "EDGARITO",
+        "apellidos": "vallejo",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "2",
+        "expedienteVCR": "1",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "edgarito@edgarito",
+        "tipo_correo2": "edgarito@edgarito",
+        "Address": "1",
+        "tipo_telefono1": "1",
+        "tipo_telefono2": "1"
+    }
+]
