@@ -81,6 +81,14 @@
   </div></div>
   <hr>
 
+    <form action="" method="post">
+      <select name="tablas">
+      <option value="documentos_estudiante">Documentos Estudiantes</option>
+      <option value="estudiantes">Estudiantes</option>
+      </select>
+      <input type="submit" name="submitted" value="Submit">
+    </form>
+
   <?php  
     $sql = "SELECT * FROM documentos_estudiante;";
     $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
