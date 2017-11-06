@@ -21,7 +21,7 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="lectura.html">Lectura</a></li>
+              <li class="active"><a href="lectura.php">Lectura</a></li>
               <li><a href="mantenimiento.html">Mantenimiento</a></li>
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
@@ -36,7 +36,7 @@
 <div class="container containerLectu">
       <h1 class="lecturas_prueba page-header">Lecturas</h1>
 
- 
+ <!--
 <div class="col-md-offset-5 col-md-8 col-sm-offset-8 col-sm-6">
 <div class="btn-group btncenter">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,39 +73,59 @@
     </ul>
   </div></div>
   <hr>
-
-  <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
+-->
 
 
+<form action="" method="post">
+  <select name="tablas">
+    <option value="documentos_estudiante">Documentos Estudiantes</option>
+    <option value="estudiantes">Estudiantes</option>
+  </select>
+  <input type="submit" name="submitted" value="Submit">
+</form>
+  
+<?php
+  require_once("../db/connection.php");
+
+  if(isset($_POST['submitted'])){
+
+    $value = $_POST['tablas']; 
+
+    switch($value){
+      case "documentos_estudiante": echo "<b>Tabla Seleccionada: </b> Documentos Estudiante<br>"; break;
+    }
+    
+    //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
+
+    $stmt = $db->query("select * from $value");
+    
+    while($row = $stmt->fetchAll())
+    {
+        $rows[] = $row;
+    }
+    
+    //echo json_encode($rows);
+    $data = json_encode($rows);
+    echo '<pre>' . var_export($data, true) . '</pre';
+    echo "<br><br>";
+
+    
+    $to_normal = json_decode($data, true);
+    print_r($to_normal);
+    //echo "<br><br>"; 
+
+    /*
+    echo "id_documentos: " . $to_normal[0][0][0] . "<br>";
+    echo "dpi: " . $to_normal[0][0][1] . "<br>";
+    echo "nota_ingles: " . $to_normal[0][0][2] . "<br><br>";
+    */
+  
+    $stmt = null;
+    $db = null;
+  } 
+  
+  
+?>
   </div>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
