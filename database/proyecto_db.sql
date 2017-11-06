@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2017 a las 08:51:01
+-- Tiempo de generación: 06-11-2017 a las 09:10:37
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -19,6 +19,23 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto_db`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AsignarAsesor` (`idasesor` INT(11), `idalumno` INT(11))  BEGIN
+   INSERT INTO asignacion_asesor(id_asesor,
+                                 id_alumno,
+                                 fecha_asignacion,
+                                 asignacion_vigente)
+        VALUES (idasesor,
+                idalumno,
+                now(),
+                TRUE);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -230,7 +247,8 @@ CREATE TABLE `direcciones` (
 CREATE TABLE `documentos_estudiante` (
   `id_documentos` int(11) NOT NULL,
   `dpi` int(13) NOT NULL,
-  `nota_ingles` float NOT NULL
+  `nota_ingles` float NOT NULL,
+  `id_alumno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -277,10 +295,9 @@ CREATE TABLE `estados_de_alumnos` (
 
 CREATE TABLE `estudiantes` (
   `id_alumno` int(11) NOT NULL,
-  `fecha_nacimineto` date NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
   `nombres` varchar(50) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `id_documentos` int(11) NOT NULL
+  `apellidos` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -503,7 +520,8 @@ ALTER TABLE `direcciones`
 -- Indices de la tabla `documentos_estudiante`
 --
 ALTER TABLE `documentos_estudiante`
-  ADD PRIMARY KEY (`id_documentos`);
+  ADD PRIMARY KEY (`id_documentos`),
+  ADD KEY `id_alumno` (`id_alumno`);
 
 --
 -- Indices de la tabla `empleado_laborando`
@@ -522,8 +540,7 @@ ALTER TABLE `estados_de_alumnos`
 -- Indices de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  ADD PRIMARY KEY (`id_alumno`),
-  ADD KEY `id_documentos` (`id_documentos`);
+  ADD PRIMARY KEY (`id_alumno`);
 
 --
 -- Indices de la tabla `examenes_privados`
@@ -654,6 +671,12 @@ ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_facultad`) REFERENCES `facultad` (`id_facultad`);
 
 --
+-- Filtros para la tabla `documentos_estudiante`
+--
+ALTER TABLE `documentos_estudiante`
+  ADD CONSTRAINT `documentos_estudiante_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `estudiantes` (`id_alumno`);
+
+--
 -- Filtros para la tabla `empleado_laborando`
 --
 ALTER TABLE `empleado_laborando`
@@ -662,9 +685,6 @@ ALTER TABLE `empleado_laborando`
 --
 -- Filtros para la tabla `estudiantes`
 --
-ALTER TABLE `estudiantes`
-  ADD CONSTRAINT `estudiantes_ibfk_1` FOREIGN KEY (`id_documentos`) REFERENCES `documentos_estudiante` (`id_documentos`);
-
 --
 -- Filtros para la tabla `facultad`
 --
