@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lectura</title>
-    <link rel="stylesheet" href="css/app.css">  
-    <meta charset = "UTF-8">      
+    <title>Lecturas</title>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div class="container">
@@ -21,7 +20,7 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="lectura.html">Lectura</a></li>
+              <li class="active"><a href="lectura.php">Lectura</a></li>
               <li><a href="mantenimiento.html">Mantenimiento</a></li>
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
@@ -36,7 +35,7 @@
 <div class="container containerLectu">
       <h1 class="lecturas_prueba page-header">Lecturas</h1>
 
- 
+<!-- 
 <div class="col-md-offset-5 col-md-8 col-sm-offset-8 col-sm-6">
 <div class="btn-group btncenter">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,40 +71,69 @@
         <li><a href="#">Firmas Catedrácticos</a></li>
     </ul>
   </div></div>
-  <hr>
+  <hr> -->
 
-  <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
+    <form action="" method="post">
+    <select name="tablas">
+      <option value="documentos_estudiante">Documentos Estudiante</option>
+      <option value="catedratico_postulado">Catedrático Postulado</option>
+      <option value="empleado_laborando">Empleados Laborando</option>
+      <option value="asesores">Asesores</option>
+      <option value="catedraticos">Catedráticos</option>
+      <option value="asignacion_asesor">Asignación Asesor</option>
+      <option value="asignacion_catedratico">Asginación Catedrático</option>
+    </select>
+      <input type="submit" name="submitted" value="Submit">
+    </form>
+
+    <?php
+    try 
+    {
+        $db = new PDO('mysql:host=localhost;dbname=proyecto_db;charset=utf8','root','');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connection Established";
+    }
+    catch(Exception $e)
+    {
+        echo "An error ocurred.";
+    }
+?>
+  <?php
+    //require_once("../db/connection.php");
+  
+    if(isset($_POST['submitted'])){
+
+      $value = $_POST['tablas']; 
+
+      switch($value){
+        case "documentos_estudiante": echo "<b>Tabla Seleccionada: </b> Documentos Estudiante<br>"; break;
+        case "catedratico_postulado": echo "<b>Tabla Seleccionada: </b> Catedratico Postulado<br>"; break;
+        case "empleado_laborando": echo "<b>Tabla Seleccionada: </b> Empleados Laborando<br>"; break;
+        case "documentos_estudiante": echo "<b>Tabla Seleccionada: </b> Documentos Estudiante<br>"; break;
+      }
+      
+      //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
+
+      $stmt = $db->query("select * from $value");
+      
+      while($row = $stmt->fetchAll())
+      {
+          $rows[] = $row;
+      }
 
 
+      $data = json_encode($rows); 
+      echo '<pre>' . var_export($data) . '</pre>'; 
+      echo "<br><br>";
+      $to_normal = json_decode($data, true);
+      echo $to_normal . "<br><br>";
+      
+
+      
+      $stmt = null;
+      $db = null;
+    }   
+  ?>
   </div>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
