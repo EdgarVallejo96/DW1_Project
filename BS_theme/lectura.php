@@ -89,6 +89,102 @@
       <input type="submit" name="submitted" value="Submit">
     </form>
 
+    <?php
+  require_once("../db/connection.php");
+
+  if(isset($_POST['submitted'])){
+
+    $value = $_POST['tablas']; 
+
+    switch($value){
+      case "empleado_laborando": echo "<b>Tabla Seleccionada: </b> Empleados laborando<br>"; break;
+    }
+    
+    //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
+
+    $stmt = $db->query("select * from $value");
+    
+    while($row = $stmt->fetchAll())
+    {
+        $rows[] = $row;
+    }
+
+    //tabla de resultados
+    $sql = "SELECT * FROM documentos_estudiante;";
+    $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
+    $resultCheck = mysqli_num_rows($results);	
+
+    echo '<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ID</th>
+          <th>Carné</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>DPI</th>
+          <th>NIT</th>
+          <th>Fecha Nacimiento</th>
+          <th>Profesión</th>
+          <th>Número Colegiado</th>
+          <th>Colegio Profesional</th>
+          <th>Estado Civil</th>
+          <th>Nacionalidad</th>
+          <th>Asesor?</th>
+          <th>Activo?</th>
+          <th>Catedrático</th>
+        </tr>
+      </thead>';
+
+    if($resultCheck > 0){
+      while($row = mysqli_fetch_assoc($results)){
+        echo '<tbody>
+        	<tr>
+          	  <th scope="row">'.$row["id_empleado"].'</th>
+          	  <td>'.$row["carne"].'</td>
+              <td>'.$row["nombres"].'</td>
+              <td>'.$row["apellidos"].'</td>
+              <td>'.$row["dpi"].'</td>
+              <td>'.$row["nit"].'</td>
+              <td>'.$row["fecha_nacimiento"].'</td>
+              <td>'.$row["profesion"].'</td>
+              <td>'.$row["numero_colegiado"].'</td>
+              <td>'.$row["colegio_profesional"].'</td>
+              <td>'.$row["estado_civil"].'</td>
+              <td>'.$row["nacionalidad"].'</td>
+              <td>'.$row["es_asesor"].'</td>
+              <td>'.$row["activo"].'</td>
+          	  <td>'.$row["es_catedratico"].'</td>
+        	</tr>
+	      </tbody>';
+      }
+    }
+
+    echo '</table>';
+
+    //echo json_encode($rows);
+    $data = json_encode($rows);
+    echo '<pre>' . var_export($data, true) . '</pre';
+    echo "<br><br>";
+
+    
+    $to_normal = json_decode($data, true);
+    print_r($to_normal);
+    //echo "<br><br>"; 
+
+    /*
+    echo "id_documentos: " . $to_normal[0][0][0] . "<br>";
+    echo "dpi: " . $to_normal[0][0][1] . "<br>";
+    echo "nota_ingles: " . $to_normal[0][0][2] . "<br><br>";
+    */
+  
+    $stmt = null;
+    $db = null;
+  } 
+  
+  
+?>
+
   <?php  
     $sql = "SELECT * FROM documentos_estudiante;";
     $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
