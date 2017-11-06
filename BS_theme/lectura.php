@@ -1,3 +1,11 @@
+<?php
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "proyecto_db"
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +81,12 @@
   </div></div>
   <hr>
 
-  <table class="table table-striped">
+  <?php  
+    $sql = "SELECT * FROM documentos_estudiante;";
+    $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
+    $resultCheck = mysqli_num_rows($results);	
+
+    echo '<table class="table table-striped">
       <thead>
         <tr>
           <th>#</th>
@@ -81,28 +94,22 @@
           <th>Last Name</th>
           <th>Username</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
+      </thead>';
+
+    if($resultCheck > 0){
+      while($row = mysqli_fetch_assoc($results)){
+        echo '<tbody>
+        	<tr>
+          	  <th scope="row">'.$row["id_documentos"].'</th>
+          	  <td>'.$row["dpi"].'</td>
+          	  <td>'.$row["nota_ingles"].'</td>
+        	</tr>
+	      </tbody>';
+      }
+    }
+
+    echo '</table>';
+  ?>
 
 
   </div>
