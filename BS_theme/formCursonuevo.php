@@ -28,7 +28,7 @@ switch(empty($POST)) {
               'idcurso'               =>     $_POST['idcurso'],  
               'aniocurso'          =>     $_POST["aniocurso"],  
               'semestre'     =>     $_POST["semestre"],
-              'periodos'          =>     $_POST["periodos"],
+              'periodos'          =>     $_POST["periodos"]
                 
          );  
          $array_data[] = $extra;  
