@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Lecturas</title>
-    <link rel="stylesheet" href="css/app.css">        
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div class="container">
@@ -181,7 +181,6 @@
       $db = null;
     }   
   ?>
-
   </div>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
