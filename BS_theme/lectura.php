@@ -83,7 +83,7 @@
 
     <form action="" method="post">
       <select name="tablas">
-      <option value="documentos_estudiante">Documentos Estudiantes</option>
+      <option value="documentos_estudiante">Empleados laborando</option>
       <option value="estudiantes">Estudiantes</option>
       </select>
       <input type="submit" name="submitted" value="Submit">
@@ -174,22 +174,9 @@
 
       echo '</table>';
 
-      //echo json_encode($rows);
-      $data = json_encode($rows);
-      //echo '<pre>' . var_export($data, true) . '</pre';
-      echo "<br><br>";
-
-      
+      $data = json_encode($rows);     
       $to_normal = json_decode($data, true);
-      //print_r($to_normal);
-      //echo "<br><br>"; 
 
-      /*
-      echo "id_documentos: " . $to_normal[0][0][0] . "<br>";
-      echo "dpi: " . $to_normal[0][0][1] . "<br>";
-      echo "nota_ingles: " . $to_normal[0][0][2] . "<br><br>";
-      */
-    
       $stmt = null;
       $db = null;
     }   
