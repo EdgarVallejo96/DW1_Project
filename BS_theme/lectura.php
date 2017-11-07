@@ -29,7 +29,7 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="lectura.html">Lectura</a></li>
+              <li class="active"><a href="lectura.php">Lectura</a></li>
               <li><a href="mantenimiento.html">Mantenimiento</a></li>
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
@@ -45,7 +45,7 @@
       <h1 class="lecturas_prueba page-header">Lecturas</h1>
 
  
-<!-- 
+<!--   ---------------------     DROPDOWN MENU ESTÁTICO --------------------------------------------------------
 <div class="col-md-offset-5 col-md-8 col-sm-offset-8 col-sm-6">
 <div class="btn-group btncenter">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,6 @@
     <ul class="dropdown-menu">
         <li><a href="#">Exámenes Privados</a></li>
         <li><a href="#">Exámenes Privados Intermedios</li>
-        <li><a href="#">Documentos Estudiante</a></li>
         <li><a href="#">Documentos Estudiante</a></li>
         <li><a href="#">Estudiantes</a></li>
         <li><a href="#">Actualizaciones de Estado</a></li>
@@ -81,11 +80,12 @@
         <li><a href="#">Firmas Catedrácticos</a></li>
     </ul>
   </div></div>
-  <hr> -->
+  <hr> 
+------------------------------------------------------------------------------ -->
 
     <form action="" method="post">
       <select name="tablas">
-      <option value="documentos_estudiante">Empleados laborando</option>
+      <option value="documentos_estudiante">Empleados Laborando</option>
       <option value="estudiantes">Estudiantes</option>
       </select>
       <input type="submit" name="submitted" value="Submit">
@@ -146,7 +146,7 @@
             <th>Nacionalidad</th>
             <th>Asesor?</th>
             <th>Activo?</th>
-            <th>Catedrático</th>
+            <th>Catedrático?</th>
           </tr>
         </thead>';
 
@@ -175,10 +175,10 @@
       }
 
       echo '</table>';
-
+/*
       $data = json_encode($rows);     
       $to_normal = json_decode($data, true);
-
+*/
       $stmt = null;
       $db = null;
     }   
