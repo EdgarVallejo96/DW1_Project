@@ -45,7 +45,7 @@
     </div>
 
 <div class="main">
-   <div class="container">
+   <div class="container formulariosGenerales">
        <div class="row">
            <div class="col-md-8">
                 <div class="panel panel-default">
@@ -56,32 +56,31 @@
                         <form>
                         <div class="form-group">
                             <label>ID ALUMNO</label>
-                            <input type="text" class="form-control" placeholder="ingrese id">
+                            <input type="number" class="form-control" placeholder="ingrese id" required="required">
                         </div>
                         <div class="form-group">
                             <label>ID ASESOR</label>
-                            <input type="text" class="form-control" placeholder="ingrese id">
+                            <input type="number" class="form-control" placeholder="ingrese id" required="required">
                         </div>
                         <div class="form-group">
                                 <label>FECHA DE ASIGNACIÓN</label>
-                                <input type="date" class="form-control" placeholder="ingrese fecha">
+                                <input type="date" class="form-control" placeholder="ingrese fecha" required="required">
                         </div>
                         
                         <label>ASIGNACIÓN VIGENTE</label><br>
-                        <div class="form-group btn-group" data-toggle="buttons" role="group">
-                                
-                                <label class="btn btn-default">
-                                        <input type="radio" autcomplete="off" active>VIGENTE
-                                </label>
-                                <label class="btn btn-default">
-                                        <input type="radio" autcomplete="off">NO VIGENTE
-                                </label>
-                        </div><br>
-                        
+                        <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type" id="type" value="vigente" class="sr-only" required>VIGENTE</label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="type" id="type" value="no vigente" class="sr-only" required>NO VIGENTE</label>
+                                </div>
+                            </div><br>
 
-                        
-                        
-                        <button type="submit" class="btn btn-primary">AGREGAR</button>
+
+                        <button type="submit" class="btn btn-primary">
+                                AGREGAR
+                        </button>
                     </form>
 
                     
@@ -89,7 +88,7 @@
                     
                 </div>
            </div>
-           
+          
            
        </div>
    </div>
