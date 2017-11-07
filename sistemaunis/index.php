@@ -14,7 +14,7 @@
   <body>
 
     <div class="container container-signin">
-          <form class="form-signin" action="http://localhost/DW1_Project/BS_theme/lectura.php">
+          <form class="form-signin" action="lectura.php">
             <h2 class="form-signin-heading">Por favor inicie sesión</h2>
             <label for="inputEmail" class="sr-only">correo electrónico</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
