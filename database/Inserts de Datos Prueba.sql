@@ -24,7 +24,8 @@ select * from direcciones;
 select * from correos;
 select * from credenciales_sistema;
 
-INSERT INTO `credenciales_sistema` (`id_sistema`, `password_sistema`) VALUES ('1001', 'patito');
+INSERT INTO `credenciales_sistema` (`id_sistema`, `password_sistema`) VALUES ('1002', 'patito');
 select * from credenciales_sistema;
 
+rollback;
 
