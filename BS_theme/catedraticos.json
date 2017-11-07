@@ -1,1 +1,50 @@
-[{"nombres":"das","apellidos":"dsa","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"1312","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo":"manu@manu","Address":"dasd","tipo_telefono":"123"},{"nombres":"Manu","apellidos":"Castillo","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"1111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo":"manu@manu","Address":"ada","tipo_telefono":"1234"},{"nombres":"Manu","apellidos":"Castillo","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"1111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manu","Address":"ada","tipo_telefono1":"123","tipo_telefono2":"1234"},{"nombres":"Manuel","apellidos":"Cast","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"111111111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"asa","tipo_telefono1":"1234","tipo_telefono2":"12344"},{"break":null,"nombres":"Manuel","apellidos":"Cast","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"111111111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"asa","tipo_telefono1":"1234","tipo_telefono2":"12344"},{"0":null,"nombres":"Manuel","apellidos":"Cast","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"111111111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"asa","tipo_telefono1":"1234","tipo_telefono2":"12344"},{"0":null,"nombres":"Manuel","apellidos":"Cast","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"111111111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"asa","tipo_telefono1":"1234","tipo_telefono2":"12344"},{"nombres":"Manuel","apellidos":"Cast","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"111111111","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"asa","tipo_telefono1":"1234","tipo_telefono2":"12344"},{"nombres":"lol","apellidos":"lol","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"11","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"dasd","tipo_telefono1":"00000","tipo_telefono2":"0000"},{"nombres":"lol","apellidos":"lol","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"11","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"dasd","tipo_telefono1":"00000","tipo_telefono2":"0000"},{"nombres":"JAJA","apellidos":"JAJA","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"1","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"AS@AS","tipo_correo2":"AS@AS","Address":"SD","tipo_telefono1":"1","tipo_telefono2":"1"},{"nombres":"JAJA","apellidos":"JAJA","expediente_completo":"1","entrevista_realizada":"1","puesto_aspirado":"Asesor","acta_aprobacion":"1","expedienteVCR":"1","entrevista_VCR":"1","aprobado_VCR":"1","tipo_correo1":"AS@AS","tipo_correo2":"AS@AS","Address":"SD","tipo_telefono1":"1","tipo_telefono2":"1"}]
+[
+    {
+        "nombres": "1",
+        "apellidos": "1",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "222",
+        "expedienteVCR": "1",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "6@6",
+        "tipo_correo2": "6@6",
+        "Address": "6",
+        "tipo_telefono1": "6",
+        "tipo_telefono2": "6"
+    },
+    {
+        "nombres": "1",
+        "apellidos": "1",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "222",
+        "expedienteVCR": "1",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "6@6",
+        "tipo_correo2": "6@6",
+        "Address": "6",
+        "tipo_telefono1": "6",
+        "tipo_telefono2": "6"
+    },
+    {
+        "nombres": "edgarito",
+        "apellidos": "vallejo",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "666",
+        "expedienteVCR": "0",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "edgarito@edgarito",
+        "tipo_correo2": "edgarito@edgarito",
+        "Address": "666",
+        "tipo_telefono1": "666",
+        "tipo_telefono2": "666"
+    }
+]

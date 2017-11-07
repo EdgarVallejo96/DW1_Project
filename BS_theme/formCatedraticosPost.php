@@ -2,6 +2,8 @@
  $message = '';  
  $error = '';  
 
+
+ if(isset($_POST["submit"])){
 switch(empty($POST)) {
     case empty($_POST["nombres"]):
     $error = "<label class='text-danger'>Ingrese nombres</label>";
@@ -35,6 +37,10 @@ switch(empty($POST)) {
     $error = "<label class='text-danger'>ndique entrevista</label>";
     break;
 
+    case empty($_POST["aprobado_VCR"]):
+    $error = "<label class='text-danger'>ndique entrevista</label>";
+    break;
+
     case empty($_POST["tipo_correo1"]):
     $error = "<label class='text-danger'>Ingrese correo</label>";
     break;
@@ -54,9 +60,9 @@ switch(empty($POST)) {
     case empty($_POST["tipo_telefono2"]):
     $error = "<label class='text-danger'>Ingrese telefono</label>";
     break;
-
-    case file_exists('catedraticos.json'):
-    if(file_exists('catedraticos.json'))  
+}
+    
+    if( file_exists('catedraticos.json'))  
     {  
         
          $current_data = file_get_contents('catedraticos.json');  
@@ -75,23 +81,23 @@ switch(empty($POST)) {
               'tipo_correo2'          =>     $_POST["tipo_correo2"],  
               'Address'     =>     $_POST["Address"],
               'tipo_telefono1'     =>     $_POST["tipo_telefono1"],
-              'tipo_telefono2'          =>     $_POST["tipo_telefono2"]
+              'tipo_telefono2'          =>     $_POST["tipo_telefono2"],
               
               
-         );  
-         $array_data[] = $extra;  
-         $final_data = json_encode($array_data);  
-         if(file_put_contents('catedraticos.json', $final_data))  
-         {  
-              $message = "<label class='text-success'>Datos enviados con exito</p>";  
-         }  
-    }  
-    else  
-    {  
-         $error = 'JSON File no existe';  
+            );  
+            $array_data[] = $extra;  
+            $final_data = json_encode($array_data, JSON_PRETTY_PRINT);  
+            if(file_put_contents('catedraticos.json', $final_data))  
+            {  
+                 $message = "<label class='text-success'>Datos enviados con exito</p>";  
+            }  
+       }  
+       else  
+       {  
+            $error = 'JSON File no existe';  
+       }
     }
-}
-
+ 
   
  ?> 
 
@@ -138,7 +144,7 @@ switch(empty($POST)) {
 
     <div class="title-bar">
             <div class="container formulariosGenerales">
-                <h1>AGREGAR CATEDRÁTICO</h1>
+                <h1>CATEDRÁTICOS</h1>
                 
             </div>
         </div>
@@ -153,6 +159,7 @@ switch(empty($POST)) {
                         </div>
                         <div class="panel-body">
                             <form method="post">
+                            
                             <div class="form-group">
                                 <label>NOMBRES</label>
                                 <input type="text" name="nombres" class="form-control" placeholder="ingrese nombre" required="required"> 
@@ -186,7 +193,7 @@ switch(empty($POST)) {
                                 <label class="btn btn-default">
                                     <input type="radio" name="puesto_aspirado" id="puesto_aspirado" value="Catedrático" class="sr-only" required>CATEDRÁTICO</label>
                             </div>
-                        </div><br>             
+                        </div><br>            
                             <div class="form-group">
                                 <label>ACTA DE APROBACIÓN</label>
                                 <input type="number" name="acta_aprobacion" class="form-control" placeholder="ingrese acta de aprobación" required="required">
@@ -244,7 +251,12 @@ switch(empty($POST)) {
                             
                               <!-- Button trigger modal -->
                               <input type="submit" name="submit" value="Agregar" class="btn btn-primary" /><br />    
-                            
+                              <?php  
+                                if(isset($message))  
+                                {  
+                                    echo $message;  
+                                }  
+                                ?>
                             
                            </form>
 

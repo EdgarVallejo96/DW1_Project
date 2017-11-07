@@ -1,1 +1,44 @@
-[{"id_alumno":"1","id_asesor":"1","fecha_asignacion":"1111-11-11","asignacionvigente":"1"}]
+[
+    {
+        "id_alumno": "1",
+        "id_asesor": "1",
+        "fecha_asignacion": "0001-01-01",
+        "asignacionvigente": "1"
+    },
+    {
+        "id_alumno": "9",
+        "id_asesor": "9",
+        "fecha_asignacion": "0009-09-09",
+        "asignacionvigente": "0"
+    },
+    {
+        "id_alumno": "9",
+        "id_asesor": "1",
+        "fecha_asignacion": "0001-01-01",
+        "asignacionvigente": "0"
+    },
+    {
+        "id_alumno": "9",
+        "id_asesor": "9",
+        "fecha_asignacion": "0009-09-09",
+        "asignacionvigente": "0"
+    },
+    {
+        "id_alumno": null,
+        "id_asesor": null,
+        "fecha_asignacion": null,
+        "asignacionvigente": null
+    },
+    {
+        "id_alumno": "6",
+        "id_asesor": "6",
+        "fecha_asignacion": "0006-06-06",
+        "asignacionvigente": "1"
+    },
+    {
+        "id_alumno": "6",
+        "id_asesor": "6",
+        "fecha_asignacion": "0006-06-06",
+        "asignacionvigente": "1"
+    }
+]

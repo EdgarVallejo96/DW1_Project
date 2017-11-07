@@ -1,1 +1,42 @@
-[{"carn\u00e9":"1","nombres":"m","apellidos":"m","dpi":"1","nit":"1","fecha_nacimiento":"1111-11-11","profesion":"m","numero_colegiado":"1","colegio_profesional":"m","estado_civil":"casado\/a","nacionalidad":"m","es_asesor":"1","es_catedratico":"1","tipo_correo1":"manu@manu","tipo_correo2":"manu@manuel","Address":"a","tipo_telefono1":"1","tipo_telefono2":"1"}]
+[
+    {
+        "carne": "666",
+        "nombres": "edgarito",
+        "apellidos": "vallejo",
+        "dpi": "666",
+        "nit": "666",
+        "fecha_nacimiento": "0666-06-06",
+        "profesion": "666",
+        "numero_colegiado": "666",
+        "colegio_profesional": "666",
+        "estado_civil": "soltero\/a",
+        "nacionalidad": "6",
+        "es_asesor": "0",
+        "es_catedratico": "0",
+        "tipo_correo1": "6@6",
+        "tipo_correo2": "6@6",
+        "Address": "66",
+        "tipo_telefono1": "6",
+        "tipo_telefono2": "6"
+    },
+    {
+        "carne": "666",
+        "nombres": "edgarito",
+        "apellidos": "vallejo",
+        "dpi": "666",
+        "nit": "666",
+        "fecha_nacimiento": "0666-06-06",
+        "profesion": "666",
+        "numero_colegiado": "666",
+        "colegio_profesional": "666",
+        "estado_civil": "soltero\/a",
+        "nacionalidad": "6",
+        "es_asesor": "0",
+        "es_catedratico": "0",
+        "tipo_correo1": "6@6",
+        "tipo_correo2": "6@6",
+        "Address": "66",
+        "tipo_telefono1": "6",
+        "tipo_telefono2": "6"
+    }
+]
