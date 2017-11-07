@@ -1,8 +1,8 @@
 <?php  
  $message = '';  
  $error = '';  
-
-/*switch(empty($POST)) {
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
     case empty($_POST["id_alumno"]):
     $error = "<label class='text-danger'>Ingrese apellidos</label>";  
     break;
@@ -19,8 +19,7 @@
     $error = "<label class='text-danger'>Indique asignacion</label>";
     break;
   
-
-    case file_exists('asesor.json'):*/
+}
     if(file_exists('asesor.json'))  
     {  
         
@@ -47,7 +46,7 @@
     {  
          $error = 'JSON File no existe';  
     }
-//}
+}
 
   
  ?> 

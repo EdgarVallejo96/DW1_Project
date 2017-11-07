@@ -2,7 +2,9 @@
  $message = '';  
  $error = '';  
 
-/*switch(empty($POST)) {
+
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
     case empty($_POST["nombres"]):
     $error = "<label class='text-danger'>Ingrese nombres</label>";
     break;
@@ -57,10 +59,10 @@
 
     case empty($_POST["tipo_telefono2"]):
     $error = "<label class='text-danger'>Ingrese telefono</label>";
-    break;*/
-
+    break;
+}
     
-    if(file_exists('catedraticos.json'))  
+    if( file_exists('catedraticos.json'))  
     {  
         
          $current_data = file_get_contents('catedraticos.json');  
@@ -94,8 +96,8 @@
        {  
             $error = 'JSON File no existe';  
        }
-  // }
-
+    }
+ 
   
  ?> 
 
@@ -157,12 +159,7 @@
                         </div>
                         <div class="panel-body">
                             <form method="post">
-                            <?php   
-                                if(isset($error))  
-                                {  
-                                    echo $error;  
-                                }  
-                                ?>
+                            
                             <div class="form-group">
                                 <label>NOMBRES</label>
                                 <input type="text" name="nombres" class="form-control" placeholder="ingrese nombre" required="required"> 
