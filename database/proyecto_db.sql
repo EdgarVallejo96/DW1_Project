@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2017 a las 22:12:56
+-- Tiempo de generación: 07-11-2017 a las 00:17:47
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -24,7 +24,15 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_empleado_p` INT(11), `carne_p` INT(11), `nombres_p` VARCHAR(50), `apellidos_p` VARCHAR(50), `dpi_p` INT(13), `nit_p` INT(13), `fecha_nacimiento_p` DATE, `profesion_p` VARCHAR(50), `numero_colegiado_p` INT(15), `colegio_profesional_p` VARCHAR(50), `estado_civil_p` VARCHAR(30), `nacionalidad_p` VARCHAR(40), `es_asesor_p` TINYINT(1), `activo_p` TINYINT(1), `es_catedratico_p` TINYINT(1), `id_de_rol_p` INT(11))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarDatosGenerales` (`id_persona` INT(11), `emailpersonal` VARCHAR(45), `emailinstitucional` VARCHAR(45), `direccion` VARCHAR(140), `telefonocelular` INT(11), `telefonocasa` INT(11))  BEGIN
+   	INSERT INTO correos (`correo`, `tipo_correo`, `id_duenio_correo`) VALUES (emailpersonal, 'Personal', id_persona);
+	INSERT INTO correos (`correo`, `tipo_correo`, `id_duenio_correo`) VALUES (emailinstitucional, 'Institucional', id_persona);
+	INSERT INTO direcciones (`id_address`, `address`, `id_duenio_direccion`) VALUES (null, direccion, id_persona);
+	INSERT INTO telefonos (`numero`, `tipo_telefono`, `id_duenio_tel`) VALUES (telefonocelular, 'Celular', id_persona);
+	INSERT INTO telefonos (`numero`, `tipo_telefono`, `id_duenio_tel`) VALUES (telefonocasa, 'Casa', id_persona);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_empleado_p` INT(11), `carne_p` INT(11), `nombres_p` VARCHAR(50), `apellidos_p` VARCHAR(50), `dpi_p` INT(13), `nit_p` INT(13), `fecha_nacimiento_p` DATE, `profesion_p` VARCHAR(50), `numero_colegiado_p` INT(15), `colegio_profesional_p` VARCHAR(50), `estado_civil_p` VARCHAR(30), `nacionalidad_p` VARCHAR(40), `es_asesor_p` TINYINT(1), `activo_p` TINYINT(1), `es_catedratico_p` TINYINT(1), `id_de_rol_p` INT(11), `emailpersonal` VARCHAR(45), `emailinstitucional` VARCHAR(45), `direccion` VARCHAR(140), `telefonocelular` INT(11), `telefonocasa` INT(11))  BEGIN
 	DECLARE validacion_cat tinyint(1);
 	DECLARE validacion_ase tinyint(1);
 	DECLARE id_employee int(11);
@@ -47,12 +55,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_emp
                                     `id_de_rol`)
         VALUES (null,carne_p,nombres_p,apellidos_p,dpi_p,nit_p,fecha_nacimiento_p,profesion_p,numero_colegiado_p,
    colegio_profesional_p,estado_civil_p,nacionalidad_p,es_asesor_p,activo_p,es_catedratico_p,id_de_rol_p);
-   select es_asesor from Empleado_Laborando order by id_empleado ASC limit 1 into validacion_ase;
-   select es_catedratico from Empleado_Laborando order by id_empleado ASC limit 1 into validacion_cat;
-   select id_empleado from Empleado_Laborando order by id_empleado ASC limit 1 into id_employee;
+   select es_asesor from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_ase;
+   select es_catedratico from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_cat;
+   select id_empleado from Empleado_Laborando order by id_empleado DESC limit 1 into id_employee;
    if validacion_ase is true 
    THEN
-   	select * from empleado_laborando;
       INSERT INTO `asesores`(`id_asesor`, `id_empleado`, `num_asesorados`)
            VALUES (NULL, id_employee, '0');
    END IF;
@@ -61,7 +68,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_emp
       INSERT INTO `catedraticos`(`id_catedratico`, `id_empleado`)
            VALUES (NULL, id_employee);
    END IF;
-   
+   call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
+   direccion, telefonocelular, telefonocasa);
 END$$
 
 DELIMITER ;
@@ -220,15 +228,6 @@ CREATE TABLE `catedratico_postulado` (
   `aprobado_vcr` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `catedratico_postulado`
---
-
-INSERT INTO `catedratico_postulado` (`id_postulante`, `nombres`, `apellidos`, `expediente_completo`, `entrevista_realizada`, `puesto_aspirado`, `acta_aprobacion`, `expediente_en_VCR`, `entrevista_vcr`, `aprobado_vcr`) VALUES
-(458, 'yujtyjhf', 'juyjtrujrtj', 1, 0, 'yjuttfhrj7r7i', 4645, 0, 1, 0),
-(1001, 'rgergtert', 'ertwertwtrt', 1, 1, 'dfasdffdsf', 23545, 1, 1, 1),
-(1002, 'gjhgjgk', 'gnfcfgdcrt', 0, 0, 'uitiktukhujkhk', 354548, 0, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -324,44 +323,6 @@ CREATE TABLE `empleado_laborando` (
   `es_catedratico` tinyint(1) NOT NULL,
   `id_de_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `empleado_laborando`
---
-
-INSERT INTO `empleado_laborando` (`id_empleado`, `carne`, `nombres`, `apellidos`, `dpi`, `nit`, `fecha_nacimiento`, `profesion`, `numero_colegiado`, `colegio_profesional`, `estado_civil`, `nacionalidad`, `es_asesor`, `activo`, `es_catedratico`, `id_de_rol`) VALUES
-(1001, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(1002, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5556, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5557, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5558, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5559, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5560, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5561, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5562, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5563, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5564, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5565, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5566, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5567, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5568, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5569, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5570, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 1, 0, 1, 0),
-(5571, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 1, 0, 1, 0),
-(5572, 0, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5573, 2147483647, '', '', 0, 0, '0000-00-00', '', 0, '', '', '', 0, 0, 0, 0),
-(5574, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '0000-00-00', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5575, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '0000-00-00', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5576, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5577, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5578, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5579, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 0, 0),
-(5580, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 1, 0),
-(5581, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 0, 1, 0),
-(5582, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 0, 0, 1, 0),
-(5583, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 0, 1, 0),
-(5584, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 1, 1, 0),
-(5585, 23475543, 'Juan Diego', 'Chamorro', 2147483647, 342356345, '1999-05-16', 'Bombero', 5434, 'Plomeros', 'Casado', 'Chapín', 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -485,7 +446,9 @@ CREATE TABLE `roles_de_sistema` (
 --
 
 INSERT INTO `roles_de_sistema` (`id_de_rol`, `nombre_rol`) VALUES
-(0, 'Lectura');
+(0, 'Lectura'),
+(1, 'Mantenimiento'),
+(2, 'Catedrático');
 
 -- --------------------------------------------------------
 

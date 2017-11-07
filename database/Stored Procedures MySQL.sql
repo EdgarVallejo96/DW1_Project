@@ -34,7 +34,6 @@ END;
 	
 DROP PROCEDURE if exists InsertarEmpleadoLaborando;
 CREATE PROCEDURE InsertarEmpleadoLaborando(
-   id_empleado_p            int(11),
    carne_p                  int(11),
    nombres_p                varchar(50),
    apellidos_p              varchar(50),
@@ -47,9 +46,7 @@ CREATE PROCEDURE InsertarEmpleadoLaborando(
    estado_civil_p           varchar(30),
    nacionalidad_p           varchar(40),
    es_asesor_p              tinyint(1),
-   activo_p                 tinyint(1),
    es_catedratico_p         tinyint(1),
-   id_de_rol_p              int(11),
    emailpersonal			varchar(45),
    emailinstitucional		varchar(45),
    direccion				varchar(140),
@@ -77,7 +74,7 @@ BEGIN
                                     `es_catedratico`,
                                     `id_de_rol`)
         VALUES (null,carne_p,nombres_p,apellidos_p,dpi_p,nit_p,fecha_nacimiento_p,profesion_p,numero_colegiado_p,
-   colegio_profesional_p,estado_civil_p,nacionalidad_p,es_asesor_p,activo_p,es_catedratico_p,id_de_rol_p);
+   colegio_profesional_p,estado_civil_p,nacionalidad_p,es_asesor_p, 1, es_catedratico_p, 0);
    select es_asesor from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_ase;
    select es_catedratico from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_cat;
    select id_empleado from Empleado_Laborando order by id_empleado DESC limit 1 into id_employee;
@@ -94,3 +91,10 @@ BEGIN
    call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
    direccion, telefonocelular, telefonocasa);
 END;
+
+
+
+/*
+
+INSERT INTO `catedratico_postulado` (`id_postulante`, `nombres`, `apellidos`, `expediente_completo`, `entrevista_realizada`, `puesto_aspirado`, `acta_aprobacion`, `expediente_en_VCR`, `entrevista_vcr`, `aprobado_vcr`) VALUES
+(458, 'yujtyjhf', 'juyjtrujrtj', 1, 0, 'yjuttfhrj7r7i', 4645, 0, 1, 0), */
