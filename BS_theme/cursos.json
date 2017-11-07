@@ -40,5 +40,11 @@
         "aniocurso": "0001-01-01",
         "semestre": "11",
         "periodos": "1"
+    },
+    {
+        "idcurso": "999",
+        "aniocurso": "0009-09-09",
+        "semestre": "99",
+        "periodos": "9"
     }
 ]

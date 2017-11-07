@@ -2,6 +2,7 @@
  $message = '';  
  $error = '';  
 
+ if(isset($_POST["submit"])){
 switch(empty($POST)) {
     case empty($_POST["idcurso"]):
     $error = "<label class='text-danger'>Ingrese el id de curso</label>";
@@ -18,8 +19,9 @@ switch(empty($POST)) {
     case empty($_POST["periodos"]):
     $error = "<label class='text-danger'>Ingrese periodos</label>";
     break;
+}
 
-    case file_exists('cursos.json'):
+   
     if(file_exists('cursos.json'))  
     {  
          $current_data = file_get_contents('cursos.json');  

@@ -2,7 +2,8 @@
  $message = '';  
  $error = '';  
 
-/*switch(empty($POST)) {
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
     case empty($_POST["carne"]):
     $error = "<label class='text-danger'>Ingrese carné</label>";
     break;
@@ -74,8 +75,9 @@
     case empty($_POST["tipo_telefono2"]):
     $error = "<label class='text-danger'>Ingrese telefono</label>";
     break;
+}
 
-   case file_exists('empleado.json'):*/     
+     
     if(file_exists('empleado.json'))  
     {  
         
@@ -116,7 +118,7 @@
             $error = 'JSON File not exits';  
        } 
        
-   //}
+   }
 
   
  ?> 
@@ -247,6 +249,7 @@
                                         <input type="radio" name="es_catedratico" id="es_catedratico" value="0" class="sr-only" required>NO</label>
                                 </div>
                             </div><br>
+                            
 
                            <!--info de todos-->
                             <div class="form-group">
