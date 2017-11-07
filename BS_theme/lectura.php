@@ -33,7 +33,7 @@
               <li><a href="mantenimiento.html">Mantenimiento</a></li>
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
-              <li><a href="index.html">Cerrar Sesión</a></li>
+              <li><a href="index.php">Cerrar Sesión</a></li>
               
             </ul>
            
