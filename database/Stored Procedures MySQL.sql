@@ -53,9 +53,17 @@ CREATE PROCEDURE InsertarEmpleadoLaborando(
    telefonocelular			int(11),
    telefonocasa				int(11))
 BEGIN
+
 	DECLARE validacion_cat tinyint(1);
 	DECLARE validacion_ase tinyint(1);
 	DECLARE id_employee int(11);
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+   BEGIN
+      ROLLBACK;
+	  SIGNAL
+   		SQLSTATE '23000'
+   		SET MESSAGE_TEXT = 'Hubo una excepción general. No se ingresó ninguno de los datos.';
+		END;
 	
    INSERT INTO `empleado_laborando`(`id_empleado`,
                                     `carne`,
