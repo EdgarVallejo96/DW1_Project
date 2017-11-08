@@ -38,5 +38,25 @@
         "Address": "66",
         "tipo_telefono1": "6",
         "tipo_telefono2": "6"
+    },
+    {
+        "carne": "1",
+        "nombres": "holis",
+        "apellidos": "1",
+        "dpi": "1",
+        "nit": "1",
+        "fecha_nacimiento": "0001-11-11",
+        "profesion": "1",
+        "numero_colegiado": "1",
+        "colegio_profesional": "1",
+        "estado_civil": "casado\/a",
+        "nacionalidad": "1",
+        "es_asesor": "0",
+        "es_catedratico": "0",
+        "tipo_correo1": "1@1",
+        "tipo_correo2": "1@1",
+        "Address": "1",
+        "tipo_telefono1": "666",
+        "tipo_telefono2": "1"
     }
 ]
