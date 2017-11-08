@@ -11,6 +11,14 @@ call InsertarEmpleadoLaborando(20154743, 'Juan', 'Pérez', 4678343, 3426345,
 19690516, 'Gerente de mercadeo', 543464, 'Colegio de Ingenieros', 'Casado', 'Chapín', true, true,
 'juanperez@gmail.com', 'perez6447@unis.edu.gt', 'Km 18.5 Universidad del Istmo', 46362718, 52473865);
 
+call InsertarCatedraticoPostulado('Catedratico', 'Postulado', true, true, 'Catedrático', '0',
+false, false, false, 'catedraticopostulado@gmail.com', 'postulado457965@unis.edu.gt',
+'Km 18.5 Universidad del Istmo', 46362118, 52473869); 
+
+
+
+
+
 
 
 /* ----------QUERIES PARA PROBAR LOS INSERTS. -----------*/
@@ -22,6 +30,7 @@ select * from catedraticos;
 select * from telefonos;
 select * from direcciones;
 select * from correos;
+select * from catedratico_postulado;
 select * from credenciales_sistema;
 
 INSERT INTO `credenciales_sistema` (`id_sistema`, `password_sistema`) VALUES ('1002', 'patito');
