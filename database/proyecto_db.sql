@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2017 a las 23:25:03
+-- Tiempo de generación: 07-11-2017 a las 00:17:47
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -19,6 +19,60 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto_db`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarDatosGenerales` (`id_persona` INT(11), `emailpersonal` VARCHAR(45), `emailinstitucional` VARCHAR(45), `direccion` VARCHAR(140), `telefonocelular` INT(11), `telefonocasa` INT(11))  BEGIN
+   	INSERT INTO correos (`correo`, `tipo_correo`, `id_duenio_correo`) VALUES (emailpersonal, 'Personal', id_persona);
+	INSERT INTO correos (`correo`, `tipo_correo`, `id_duenio_correo`) VALUES (emailinstitucional, 'Institucional', id_persona);
+	INSERT INTO direcciones (`id_address`, `address`, `id_duenio_direccion`) VALUES (null, direccion, id_persona);
+	INSERT INTO telefonos (`numero`, `tipo_telefono`, `id_duenio_tel`) VALUES (telefonocelular, 'Celular', id_persona);
+	INSERT INTO telefonos (`numero`, `tipo_telefono`, `id_duenio_tel`) VALUES (telefonocasa, 'Casa', id_persona);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarEmpleadoLaborando` (`id_empleado_p` INT(11), `carne_p` INT(11), `nombres_p` VARCHAR(50), `apellidos_p` VARCHAR(50), `dpi_p` INT(13), `nit_p` INT(13), `fecha_nacimiento_p` DATE, `profesion_p` VARCHAR(50), `numero_colegiado_p` INT(15), `colegio_profesional_p` VARCHAR(50), `estado_civil_p` VARCHAR(30), `nacionalidad_p` VARCHAR(40), `es_asesor_p` TINYINT(1), `activo_p` TINYINT(1), `es_catedratico_p` TINYINT(1), `id_de_rol_p` INT(11), `emailpersonal` VARCHAR(45), `emailinstitucional` VARCHAR(45), `direccion` VARCHAR(140), `telefonocelular` INT(11), `telefonocasa` INT(11))  BEGIN
+	DECLARE validacion_cat tinyint(1);
+	DECLARE validacion_ase tinyint(1);
+	DECLARE id_employee int(11);
+	
+   INSERT INTO `empleado_laborando`(`id_empleado`,
+                                    `carne`,
+                                    `nombres`,
+                                    `apellidos`,
+                                    `dpi`,
+                                    `nit`,
+                                    `fecha_nacimiento`,
+                                    `profesion`,
+                                    `numero_colegiado`,
+                                    `colegio_profesional`,
+                                    `estado_civil`,
+                                    `nacionalidad`,
+                                    `es_asesor`,
+                                    `activo`,
+                                    `es_catedratico`,
+                                    `id_de_rol`)
+        VALUES (null,carne_p,nombres_p,apellidos_p,dpi_p,nit_p,fecha_nacimiento_p,profesion_p,numero_colegiado_p,
+   colegio_profesional_p,estado_civil_p,nacionalidad_p,es_asesor_p,activo_p,es_catedratico_p,id_de_rol_p);
+   select es_asesor from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_ase;
+   select es_catedratico from Empleado_Laborando order by id_empleado DESC limit 1 into validacion_cat;
+   select id_empleado from Empleado_Laborando order by id_empleado DESC limit 1 into id_employee;
+   if validacion_ase is true 
+   THEN
+      INSERT INTO `asesores`(`id_asesor`, `id_empleado`, `num_asesorados`)
+           VALUES (NULL, id_employee, '0');
+   END IF;
+	if validacion_cat is true 
+   THEN
+      INSERT INTO `catedraticos`(`id_catedratico`, `id_empleado`)
+           VALUES (NULL, id_employee);
+   END IF;
+   call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
+   direccion, telefonocelular, telefonocasa);
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -113,7 +167,7 @@ CREATE TABLE `bitacora_new_data` (
   `campo_editado` varchar(40) NOT NULL,
   `valor_nuevo` varchar(40) NOT NULL,
   `fecha_de_ingreso` date NOT NULL,
-  `hora_de_ingreo` time NOT NULL,
+  `hora_de_ingreso` time NOT NULL,
   `id_registro_viejo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -127,6 +181,7 @@ CREATE TABLE `bitacora_old_data` (
   `id_registro_viejo` int(11) NOT NULL,
   `tabla_editada` varchar(40) NOT NULL,
   `campo_editado` varchar(40) NOT NULL,
+  `valor_viejo` varchar(40) NOT NULL,
   `id_registro_nuevo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -168,9 +223,21 @@ CREATE TABLE `catedratico_postulado` (
   `entrevista_realizada` tinyint(1) NOT NULL,
   `puesto_aspirado` varchar(20) NOT NULL,
   `acta_aprobacion` int(11) NOT NULL,
-  `expedientes_vcr` tinyint(1) NOT NULL,
+  `expediente_en_VCR` tinyint(1) NOT NULL,
   `entrevista_vcr` tinyint(1) NOT NULL,
   `aprobado_vcr` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `correos`
+--
+
+CREATE TABLE `correos` (
+  `correo` varchar(45) NOT NULL,
+  `tipo_correo` varchar(30) NOT NULL,
+  `id_duenio_correo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -182,6 +249,17 @@ CREATE TABLE `catedratico_postulado` (
 CREATE TABLE `correspondencia` (
   `id_correspondiente` int(11) NOT NULL,
   `fecha_reporte` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `credenciales_sistema`
+--
+
+CREATE TABLE `credenciales_sistema` (
+  `id_sistema` int(11) NOT NULL,
+  `password_sistema` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -205,7 +283,7 @@ CREATE TABLE `cursos` (
 CREATE TABLE `direcciones` (
   `id_address` int(11) NOT NULL,
   `address` varchar(140) NOT NULL,
-  `id_duenio` int(11) NOT NULL
+  `id_duenio_direccion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -217,7 +295,8 @@ CREATE TABLE `direcciones` (
 CREATE TABLE `documentos_estudiante` (
   `id_documentos` int(11) NOT NULL,
   `dpi` int(13) NOT NULL,
-  `nota_ingles` float NOT NULL
+  `nota_ingles` float NOT NULL,
+  `id_alumno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -264,10 +343,9 @@ CREATE TABLE `estados_de_alumnos` (
 
 CREATE TABLE `estudiantes` (
   `id_alumno` int(11) NOT NULL,
-  `fecha_nacimineto` date NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
   `nombres` varchar(50) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `id_documentos` int(11) NOT NULL
+  `apellidos` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -364,6 +442,27 @@ CREATE TABLE `roles_de_sistema` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Volcado de datos para la tabla `roles_de_sistema`
+--
+
+INSERT INTO `roles_de_sistema` (`id_de_rol`, `nombre_rol`) VALUES
+(0, 'Lectura'),
+(1, 'Mantenimiento'),
+(2, 'Catedrático');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `telefonos`
+--
+
+CREATE TABLE `telefonos` (
+  `numero` int(11) NOT NULL,
+  `tipo_telefono` varchar(20) NOT NULL,
+  `id_duenio_tel` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -396,7 +495,7 @@ ALTER TABLE `asignaciones_estudiantes`
 -- Indices de la tabla `asignacion_asesor`
 --
 ALTER TABLE `asignacion_asesor`
-  ADD PRIMARY KEY (`id_asesor`,`id_alumno`),
+  ADD PRIMARY KEY (`id_asesor`,`id_alumno`,`fecha_asignacion`),
   ADD KEY `asignacion_asesor_ibfk_2` (`id_alumno`);
 
 --
@@ -432,7 +531,9 @@ ALTER TABLE `bitacora_old_data`
 -- Indices de la tabla `carreras`
 --
 ALTER TABLE `carreras`
-  ADD PRIMARY KEY (`id_carrera`);
+  ADD PRIMARY KEY (`id_carrera`),
+  ADD KEY `id_director_carrera` (`id_director_carrera`),
+  ADD KEY `id_facultad` (`id_facultad`);
 
 --
 -- Indices de la tabla `catedraticos`
@@ -448,10 +549,22 @@ ALTER TABLE `catedratico_postulado`
   ADD PRIMARY KEY (`id_postulante`);
 
 --
+-- Indices de la tabla `correos`
+--
+ALTER TABLE `correos`
+  ADD PRIMARY KEY (`correo`);
+
+--
 -- Indices de la tabla `correspondencia`
 --
 ALTER TABLE `correspondencia`
-  ADD PRIMARY KEY (`id_correspondiente`);
+  ADD PRIMARY KEY (`fecha_reporte`,`id_correspondiente`);
+
+--
+-- Indices de la tabla `credenciales_sistema`
+--
+ALTER TABLE `credenciales_sistema`
+  ADD PRIMARY KEY (`id_sistema`,`password_sistema`);
 
 --
 -- Indices de la tabla `cursos`
@@ -470,7 +583,8 @@ ALTER TABLE `direcciones`
 -- Indices de la tabla `documentos_estudiante`
 --
 ALTER TABLE `documentos_estudiante`
-  ADD PRIMARY KEY (`id_documentos`);
+  ADD PRIMARY KEY (`id_documentos`),
+  ADD KEY `id_alumno` (`id_alumno`);
 
 --
 -- Indices de la tabla `empleado_laborando`
@@ -489,8 +603,7 @@ ALTER TABLE `estados_de_alumnos`
 -- Indices de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  ADD PRIMARY KEY (`id_alumno`),
-  ADD KEY `id_documentos` (`id_documentos`);
+  ADD PRIMARY KEY (`id_alumno`);
 
 --
 -- Indices de la tabla `examenes_privados`
@@ -508,7 +621,8 @@ ALTER TABLE `examenes_privados_intermedios`
 -- Indices de la tabla `facultad`
 --
 ALTER TABLE `facultad`
-  ADD PRIMARY KEY (`id_facultad`);
+  ADD PRIMARY KEY (`id_facultad`),
+  ADD KEY `id_decano` (`id_decano`);
 
 --
 -- Indices de la tabla `firmas_catedraticos`
@@ -536,6 +650,44 @@ ALTER TABLE `proceso_graduacion`
 ALTER TABLE `roles_de_sistema`
   ADD PRIMARY KEY (`id_de_rol`);
 
+--
+-- Indices de la tabla `telefonos`
+--
+ALTER TABLE `telefonos`
+  ADD PRIMARY KEY (`numero`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `asesores`
+--
+ALTER TABLE `asesores`
+  MODIFY `id_asesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT =1001;;
+--
+-- AUTO_INCREMENT de la tabla `asignacion_catedratico`
+--
+ALTER TABLE `asignacion_catedratico`
+  MODIFY `id_asignacion_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;;
+--
+-- AUTO_INCREMENT de la tabla `catedraticos`
+--
+ALTER TABLE `catedraticos`
+  MODIFY `id_catedratico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `catedratico_postulado`
+--
+ALTER TABLE `catedratico_postulado`
+  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `empleado_laborando`
+--
+ALTER TABLE `empleado_laborando`
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  
+ALTER TABLE `DIRECCIONES`
+  MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 --
 -- Restricciones para tablas volcadas
 --
@@ -595,10 +747,23 @@ ALTER TABLE `bitacora_old_data`
   ADD CONSTRAINT `bitacora_old_data_ibfk_1` FOREIGN KEY (`id_registro_nuevo`) REFERENCES `bitacora_new_data` (`id_registro_nuevo`);
 
 --
+-- Filtros para la tabla `carreras`
+--
+ALTER TABLE `carreras`
+  ADD CONSTRAINT `carreras_ibfk_1` FOREIGN KEY (`id_director_carrera`) REFERENCES `empleado_laborando` (`id_empleado`),
+  ADD CONSTRAINT `carreras_ibfk_2` FOREIGN KEY (`id_facultad`) REFERENCES `facultad` (`id_facultad`);
+
+--
 -- Filtros para la tabla `catedraticos`
 --
 ALTER TABLE `catedraticos`
   ADD CONSTRAINT `catedraticos_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleado_laborando` (`id_empleado`);
+
+--
+-- Filtros para la tabla `credenciales_sistema`
+--
+ALTER TABLE `credenciales_sistema`
+  ADD CONSTRAINT `credenciales_sistema_ibfk_1` FOREIGN KEY (`id_sistema`) REFERENCES `empleado_laborando` (`id_empleado`);
 
 --
 -- Filtros para la tabla `cursos`
@@ -607,16 +772,22 @@ ALTER TABLE `cursos`
   ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id_facultad`) REFERENCES `facultad` (`id_facultad`);
 
 --
+-- Filtros para la tabla `documentos_estudiante`
+--
+ALTER TABLE `documentos_estudiante`
+  ADD CONSTRAINT `documentos_estudiante_ibfk_1` FOREIGN KEY (`id_alumno`) REFERENCES `estudiantes` (`id_alumno`);
+
+--
 -- Filtros para la tabla `empleado_laborando`
 --
 ALTER TABLE `empleado_laborando`
   ADD CONSTRAINT `empleado_laborando_ibfk_1` FOREIGN KEY (`id_de_rol`) REFERENCES `roles_de_sistema` (`id_de_rol`);
 
 --
--- Filtros para la tabla `estudiantes`
+-- Filtros para la tabla `facultad`
 --
-ALTER TABLE `estudiantes`
-  ADD CONSTRAINT `estudiantes_ibfk_1` FOREIGN KEY (`id_documentos`) REFERENCES `documentos_estudiante` (`id_documentos`);
+ALTER TABLE `facultad`
+  ADD CONSTRAINT `facultad_ibfk_1` FOREIGN KEY (`id_decano`) REFERENCES `empleado_laborando` (`id_empleado`);
 
 --
 -- Filtros para la tabla `firmas_catedraticos`
