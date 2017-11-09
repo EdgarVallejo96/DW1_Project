@@ -98,11 +98,35 @@ BEGIN
    END IF;
    call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
    direccion, telefonocelular, telefonocasa);
+   commit;
+END;
+
+DROP PROCEDURE if exists InsertarCatedraticoPostulado;
+CREATE PROCEDURE InsertarCatedraticoPostulado(nombres_p varchar(50), apellidos_p varchar(50),
+expediente_completo_p tinyint(1), entrevista_realizada_p tinyint(1), puesto_aspirado_p varchar(20),
+acta_aprobacion_p int(11), expediente_en_VCR_p tinyint(1), entrevista_vcr_p tinyint(1), aprobado_vcr_p tinyint(1),
+emailpersonal varchar(45), emailinstitucional varchar(45), direccion varchar(140), telefonocelular int(11),
+telefonocasa int(11))
+BEGIN
+	DECLARE id_employee int(11);
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+   BEGIN
+      ROLLBACK;
+	  SIGNAL
+   		SQLSTATE '23000'
+   		SET MESSAGE_TEXT = 'Hubo una excepción general. No se ingresó ninguno de los datos.';
+		END;
+	
+  INSERT INTO `catedratico_postulado` (`id_postulante`, `nombres`, `apellidos`,
+   `expediente_completo`, `entrevista_realizada`, `puesto_aspirado`, `acta_aprobacion`,
+    `expediente_en_VCR`, `entrevista_vcr`, `aprobado_vcr`)
+	 VALUES (NULL,nombres_p, apellidos_p, expediente_completo_p, entrevista_realizada_p,
+	 puesto_aspirado_p, acta_aprobacion_p, expediente_en_VCR_p, entrevista_vcr_p, aprobado_vcr_p);
+	 
+   select id_postulante from catedratico_postulado order by id_postulante DESC limit 1 into id_employee;
+   call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
+   direccion, telefonocelular, telefonocasa);
+   commit;
 END;
 
 
-
-/*
-
-INSERT INTO `catedratico_postulado` (`id_postulante`, `nombres`, `apellidos`, `expediente_completo`, `entrevista_realizada`, `puesto_aspirado`, `acta_aprobacion`, `expediente_en_VCR`, `entrevista_vcr`, `aprobado_vcr`) VALUES
-(458, 'yujtyjhf', 'juyjtrujrtj', 1, 0, 'yjuttfhrj7r7i', 4645, 0, 1, 0), */

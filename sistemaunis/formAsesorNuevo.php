@@ -78,7 +78,7 @@ switch(empty($POST)) {
                   </div>
                   <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                      <li><a href="lectura.html">Lectura</a></li>
+                      <li><a href="lectura.php">Lectura</a></li>
                       <li class="active"><a href="mantenimiento.html">Mantenimiento</a></li>
                       <li><a href="firmas.html">Firmas</a></li>
                       <li><a href="ayuda.html">Ayuda</a></li>
@@ -92,7 +92,7 @@ switch(empty($POST)) {
 
       <div class="title-bar">
         <div class="container">
-            <h1>AGREGAR ASESOR</h1>
+            <h1>ASIGNAR ASESOR A ESTUDIANTE</h1>
             
         </div>
     </div>

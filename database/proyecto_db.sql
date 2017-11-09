@@ -684,7 +684,7 @@ ALTER TABLE `catedratico_postulado`
 -- AUTO_INCREMENT de la tabla `empleado_laborando`
 --
 ALTER TABLE `empleado_laborando`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15001;
   
 ALTER TABLE `DIRECCIONES`
   MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
