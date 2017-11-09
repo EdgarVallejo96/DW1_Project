@@ -40,8 +40,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
-                        $hashed_password = $row['password_sistema'];
-                        if(password_verify($password, $hashed_password)){
+                        $password_db = $row["password_sistema"];
+                        if(password_verify($password, $password_db)){
                             /* Password is correct, so start a new session and
                             save the username to the session */
                             session_start();
@@ -92,10 +92,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               <span class="help-block"><?php echo $username_err; ?></span> 
             </div>
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-              <input type="password" name="password" class="form-control" placeholder="Contraseña">
+              <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder="Contraseña">
               <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">INICIAR SESIÓN</button>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="INICIAR SESIÓN">
           </form>
     
         </div> <!-- /container -->

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 
 <?php
+    session_start();
+    
     $dbServername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
-    $dbName = "proyecto_db"
-
+    $dbName = "proyecto_db";
+     
+    // If session variable is not set it will redirect to login page
+    if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+      header("location: index.php");
+      exit;
+    }
 ?>
 
 <html>
