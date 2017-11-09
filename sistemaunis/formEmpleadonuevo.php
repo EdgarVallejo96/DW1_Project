@@ -76,8 +76,41 @@ switch(empty($POST)) {
     $error = "<label class='text-danger'>Ingrese telefono</label>";
     break;
 }
+    $json_array = array(
+        'carne'                 =>     $_POST['carne'],  
+        'nombres'               =>     $_POST["nombres"],  
+        'apellidos'             =>     $_POST["apellidos"],
+        'dpi'                   =>     $_POST["dpi"],  
+        'nit'                   =>     $_POST["nit"],  
+        'fecha_nacimiento'      =>     $_POST["fecha_nacimiento"],
+        'profesion'             =>     $_POST["profesion"],  
+        'numero_colegiado'      =>     $_POST["numero_colegiado"],  
+        'colegio_profesional'   =>     $_POST["colegio_profesional"],
+        'estado_civil'          =>     $_POST["estado_civil"],
+        'nacionalidad'          =>     $_POST["nacionalidad"],  
+        'es_asesor'             =>     $_POST["es_asesor"],  
+        'es_catedratico'        =>     $_POST["es_catedratico"],
+        'tipo_correo1'          =>     $_POST["tipo_correo1"],  
+        'tipo_correo2'          =>     $_POST["tipo_correo2"],  
+        'Address'               =>     $_POST["Address"],
+        'tipo_telefono1'        =>     $_POST["tipo_telefono1"],
+        'tipo_telefono2'        =>     $_POST["tipo_telefono2"],
+    );
+   
+    $json_format = json_encode($json_array, JSON_PRETTY_PRINT);  
+    
+                $json_file = '../sistemaunis/json/EmpleadoNuevo.json';
+    
+                if(file_put_contents($json_file, $json_format)){
+                    echo "Archivo JSON creado.";
+                } else {
+                    echo "Error creando arhivo JSON.";
+                }
+    
+                include '../sistemaunis/controlador/c_EmpleadoNuevo.php';
+     }
 
-     
+/*
     if(file_exists('empleado.json'))  
     {  
         
@@ -118,7 +151,7 @@ switch(empty($POST)) {
             $error = 'JSON File not exits';  
        } 
        
-   }
+   } */
 
   
  ?> 
