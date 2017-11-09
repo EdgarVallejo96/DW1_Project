@@ -12,7 +12,7 @@
   </head>
 
   <body>
-
+<main>
     <div class="container container-signin">
           <form class="form-signin" action="lectura.php">
             <h2 class="form-signin-heading">Por favor inicie sesión</h2>
@@ -29,6 +29,7 @@
           </form>
     
         </div> <!-- /container -->
+</main>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>

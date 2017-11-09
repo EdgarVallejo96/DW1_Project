@@ -40,9 +40,10 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
-
+<header>
 <div class="container containerLectu">
       <h1 class="lecturas_prueba page-header">Lecturas</h1>
+</header>
 
  
 <!--   ---------------------     DROPDOWN MENU ESTÁTICO --------------------------------------------------------
@@ -82,7 +83,7 @@
   </div></div>
   <hr> 
 ------------------------------------------------------------------------------ -->
-
+<main>
     <form action="" method="post">
       <select name="tablas">
       <option value="documentos_estudiante">Documentos Estudiantes</option>
@@ -95,6 +96,8 @@
       </select>
       <input type="submit" name="submitted" value="Submit">
     </form>
+
+
 
   <?php
     require_once("/controlador/connection.php");
@@ -190,6 +193,8 @@
     }   
   ?>
   </div>
+
+  </main>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>

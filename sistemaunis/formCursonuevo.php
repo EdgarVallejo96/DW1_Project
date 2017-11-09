@@ -90,14 +90,15 @@ switch(empty($POST)) {
                   </div><!--/.nav-collapse -->
                 </div>
               </nav>
-
+<head>
     <div class="title-bar">
             <div class="container">
                 <h1>ASIGNAR CURSO A CATEDRÁTICO</h1>
                 
             </div>
         </div>
-
+</head>
+<main>
    <div class="main">
        <div class="container formulariosGenerales">
            <div class="row">
@@ -155,7 +156,7 @@ switch(empty($POST)) {
    </div>
 
 
-    
+                            </main>
 
 
 
