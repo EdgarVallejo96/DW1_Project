@@ -81,7 +81,7 @@
 
             $json_format = json_encode($json_array, JSON_PRETTY_PRINT);  
 
-            $json_file = '../sistemaunis/jsons/catedraticos_post.json';
+            $json_file = '../sistemaunis/json/catedraticos_post.json';
 
             if(file_put_contents($json_file, $json_format)){
                 echo "Archivo JSON creado.";
