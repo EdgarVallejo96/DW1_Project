@@ -78,5 +78,37 @@
         "Address": "1",
         "tipo_telefono1": "2",
         "tipo_telefono2": "3"
+    },
+    {
+        "nombres": "EDGARITO NENE",
+        "apellidos": "VALLEJO",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Asesor",
+        "acta_aprobacion": "666",
+        "expedienteVCR": "0",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "6@6",
+        "tipo_correo2": "1@11",
+        "Address": "1",
+        "tipo_telefono1": "2",
+        "tipo_telefono2": "3"
+    },
+    {
+        "nombres": "Karvin",
+        "apellidos": "Krain",
+        "expediente_completo": "0",
+        "entrevista_realizada": "0",
+        "puesto_aspirado": "Catedr\u00e1tico",
+        "acta_aprobacion": "666",
+        "expedienteVCR": "0",
+        "entrevista_VCR": "0",
+        "aprobado_VCR": "0",
+        "tipo_correo1": "666@satan.inf",
+        "tipo_correo2": "666@lucifer",
+        "Address": "6 ave 6ta calle lote 6",
+        "tipo_telefono1": "666",
+        "tipo_telefono2": "666"
     }
 ]
