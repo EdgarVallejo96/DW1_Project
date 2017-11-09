@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once 'controlador/config.php';
+require_once 'controlador/redirectToLogin.php';
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";

@@ -1,3 +1,6 @@
+<?php
+  require_once 'controlador/redirectToLogin.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Modificar Empleado</title>
+    <title>Modificar Catedrático Postulado</title>
     <link rel="stylesheet" href="css/app.css">
     
   </head>
@@ -41,7 +44,7 @@
 
     <div class="title-bar">
             <div class="container">
-                <h1>MODIFICAR EMPLEADO</h1>
+                <h1>MODIFICAR CATEDRÁTICO POSTULADO</h1>
                 
             </div>
         </div><br>
@@ -62,14 +65,10 @@
                <div class="col-md-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">ID EMPLEADO</h4>
+                            <h4 class="panel-title">ID CATEDRATICO</h4>
                         </div>
                         <div class="panel-body">
                             <form>
-                             <div class="form-group">
-                                <label>CARNÉ</label>
-                                <input type="number" class="form-control" placeholder="ingrese carne" required="required">
-                            </div>
                             <div class="form-group">
                                 <label>NOMBRES</label>
                                 <input type="text" class="form-control" placeholder="ingrese nombre" required="required">
@@ -78,53 +77,33 @@
                                 <label>APELLIDOS</label>
                                 <input type="text" class="form-control" placeholder="ingrese apellido" required="required">
                             </div>
-                            <div class="form-group">
-                                    <label>DPI</label>
-                                    <input type="number" class="form-control" placeholder="ingrese DPI" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>NIT</label>
-                                <input type="text" class="form-control" placeholder="ingrese NIT" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>FECHA DE NACIMIENTO</label>
-                                <input type="date" class="form-control" placeholder="ingrese fecha" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>PROFESION</label>
-                                <input type="text" class="form-control" placeholder="ingrese preofesion" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>NUMERO DE COLEGIADO</label>
-                                <input type="number" class="form-control" placeholder="ingrese numero" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>COLEGIO PROFESIONAL DE EGRESO</label>
-                                <input type="text" class="form-control" placeholder="ingrese" required="required">
-                            </div>
-                            <label>ESTADO CIVIL</label><br>
-                           <div data-toggle="buttons">
-                                <div class="btn-group">
-                                    <label class="btn btn-default"> 
-                                    <input type="radio" name="type" id="type" value="casado" class="sr-only" required>CASADO</label>
-                                    <label class="btn btn-default">
-                                        <input type="radio" name="type" id="type" value="soltero" class="sr-only" required>SOLTERO</label>
-                                </div>
+                            <label>EXPEDIENTE</label><br>
+                            <div data-toggle="buttons">
+                                    <div class="btn-group">
+                                        <label class="btn btn-default"> 
+                                        <input type="radio" name="type" id="type" value="completo" class="sr-only" required>COMPLETO</label>
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="type" id="type" value="incompleto" class="sr-only" required>INCOMPLETO</label>
+                                    </div>
                             </div><br>
-                            <div class="form-group">
-                                <label>NACIONALIDAD</label>
-                                <input type="text" class="form-control" placeholder="ingrese nacionalidad" required="required">
-                            </div>
-                            <label>ES ASESOR</label><br>
+                            <br><label>ENTREVISTA</label><br>
                             <div data-toggle="buttons">
                                 <div class="btn-group">
                                     <label class="btn btn-default"> 
-                                    <input type="radio" name="type1" id="type1" value="si" class="sr-only" required>SI</label>
+                                    <input type="radio" name="type1" id="type1" value="realizada" class="sr-only" required>RELIZADA</label>
                                     <label class="btn btn-default">
-                                        <input type="radio" name="type1" id="type1" value="no" class="sr-only" required>NO</label>
+                                        <input type="radio" name="type1" id="type1" value="no_realizada" class="sr-only" required>NO NO REALIZADA</label>
                                 </div>
-                            </div><br>
-                            <label>ES CATEDRÁTICO</label><br>
+                            </div><br>     
+                            <div class="form-group">
+                                <label>PUESTO ASPIRADO</label>
+                                <input type="text" class="form-control" placeholder="ingrese puesto" required="required">
+                            </div>              
+                            <div class="form-group">
+                                <label>ACTA DE APROBACIÓN</label>
+                                <input type="text" class="form-control" placeholder="ingrese acta de aprobación" required="required">
+                            </div>
+                            <br><label>EXPEDIENTE EN VICERRECTORÍA</label><br>
                             <div data-toggle="buttons">
                                 <div class="btn-group">
                                     <label class="btn btn-default"> 
@@ -133,7 +112,25 @@
                                         <input type="radio" name="type2" id="type2" value="no" class="sr-only" required>NO</label>
                                 </div>
                             </div><br>
-
+                            <br><label>ENTREVISTA EN VICERRECTORÍA</label><br>
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type3" id="type3" value="si" class="sr-only" required>SI</label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="type3" id="type3" value="no" class="sr-only" required>NO</label>
+                                </div>
+                            </div><br>
+                            <br><label>APROBADO EN VICERRECTORÍA</label><br>
+                            <div data-toggle="buttons">
+                                <div class="btn-group">
+                                    <label class="btn btn-default"> 
+                                    <input type="radio" name="type4" id="type4" value="si" class="sr-only" required>SI</label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="type4" id="type4" value="no" class="sr-only" required>NO</label>
+                                </div>
+                            </div><br>
+                                      
                             <!--info de todos-->
                             <div class="form-group">
                                     <label>EMAIL PERSONAL</label>
@@ -154,8 +151,9 @@
                             <div class="form-group">
                                 <label>TELEFONO DE CASA</label>
                                 <input type="number" class="form-control" placeholder="ingrese numero" required="required">
-                            </div>                                                 
-
+                            </div>
+                                                       
+                            
                             <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                     MODIFICAR
                             </button>
@@ -173,9 +171,6 @@
    </div>
 
 
-      
-      
-
   
 
 
@@ -189,6 +184,10 @@
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-
+    <script>
+    $('.dropdown-menu a').on('click', function(){    
+        $(this).parent().parent().prev().html($(this).html() + '<span class="caret"></span>');    
+    })
+</script>
   </body>
 </html>
