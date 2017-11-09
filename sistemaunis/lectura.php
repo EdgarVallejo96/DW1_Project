@@ -97,7 +97,7 @@
     </form>
 
   <?php
-    require_once("/controlador/connection.php");
+    
 
     if(isset($_POST['submitted'])){
 
@@ -113,14 +113,11 @@
         case "asignacion_catedratico": echo "<b>Tabla Seleccionada: </b> Asignaciones Catedráticos <br>"; break;
       }
       
-      //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
+      include "../sistemaunis/controlador/c_lectura.php";
 
-      $stmt = $db->query("select * from $value");
-      $rows = "";
-      while($row = $stmt->fetchAll())
-      {
-          $rows[] = $row;
-      }
+      //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
+      
+
       /*
       //tabla de resultados
       $sql = "SELECT * FROM empleado_laborando;";
@@ -175,18 +172,6 @@
 
       echo '</table>';
       */
-
-      $data = json_encode($rows, JSON_PRETTY_PRINT);    
-      echo "<pre>"; 
-      echo var_export($data);
-      echo "<br><br>";
-
-      $to_normal = json_decode($data, true);
-      print_r($to_normal);
-      echo "<br><br></pre>";
-
-      $stmt = null;
-      $db = null;
     }   
   ?>
   </div>
