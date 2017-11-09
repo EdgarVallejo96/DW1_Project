@@ -183,7 +183,7 @@
                                 <label class="btn btn-default"> 
                                 <input type="radio" name="puesto_aspirado" id="puesto_aspirado" value="Asesor" class="sr-only" required>ASESOR</label>
                                 <label class="btn btn-default">
-                                    <input type="radio" name="puesto_aspirado" id="puesto_aspirado" value="Catedrático" class="sr-only" required>CATEDRÁTICO</label>
+                                    <input type="radio" name="puesto_aspirado" id="puesto_aspirado" value="Catedratico" class="sr-only" required>CATEDRÁTICO</label>
                             </div>
                         </div><br>            
                             <div class="form-group">
