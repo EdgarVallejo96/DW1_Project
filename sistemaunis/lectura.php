@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-
 <?php
-    session_start();
-    
-    require_once 'controlador/config.php';
-     
-    // If session variable is not set it will redirect to login page
-    if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-      header("location: index.php");
-      exit;
-    }
+  require_once 'controlador/redirectToLogin.php';
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Lecturas</title>
@@ -38,6 +29,7 @@
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
               <li><a href="logout.php">Cerrar Sesión</a></li>
+              <li><a href="register.php">Registrar usuario (Solo mantenimiento)</a></li>
               
             </ul>
            

@@ -1,3 +1,7 @@
+<?php
+  require_once 'controlador/redirectToLogin.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

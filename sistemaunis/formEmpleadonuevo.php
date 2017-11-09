@@ -1,4 +1,6 @@
 <?php  
+    require_once 'controlador/redirectToLogin.php';
+
  $message = '';  
  $error = '';  
 
