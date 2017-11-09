@@ -176,10 +176,14 @@
       echo '</table>';
       */
 
-      $data = json_encode($rows);     
-      echo $rows . "<br><br>";
+      $data = json_encode($rows, JSON_PRETTY_PRINT);    
+      echo "<pre>"; 
+      echo var_export($data);
+      echo "<br><br>";
+
       $to_normal = json_decode($data, true);
-      echo $to_normal . "<br><br>";
+      print_r($to_normal);
+      echo "<br><br></pre>";
 
       $stmt = null;
       $db = null;
