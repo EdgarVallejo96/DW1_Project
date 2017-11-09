@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 
 <?php
-    $dbServername = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "proyecto_db"
-
+    session_start();
+    
+    require_once 'controlador/config.php';
+     
+    // If session variable is not set it will redirect to login page
+    if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+      header("location: index.php");
+      exit;
+    }
 ?>
 
 <html>
@@ -33,7 +37,7 @@
               <li><a href="mantenimiento.html">Mantenimiento</a></li>
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
-              <li><a href="index.php">Cerrar Sesión</a></li>
+              <li><a href="logout.php">Cerrar Sesión</a></li>
               
             </ul>
            
@@ -85,43 +89,44 @@
 
     <form action="" method="post">
       <select name="tablas">
-      <option value="documentos_estudiante">Documentos Estudiantes</option>
-      <option value="catedratico_postulado">Catedráticos Postulados</option>
-      <option value="empleado_laborando">Empleados Laborando</option>
-      <option value="asesores">Asesores</option>
-      <option value="catedraticos">Catedráticos</option>
-      <option value="asignacion_asesor">Asignaciones Asesores</option>
-      <option value="asignacion_catedratico">Asignaciones Catedráticos</option>
+      <option value="documentos_estudiante">Empleados Laborando</option>
+      <option value="estudiantes">Estudiantes</option>
       </select>
       <input type="submit" name="submitted" value="Submit">
     </form>
 
   <?php
-    require_once("/controlador/connection.php");
+    try 
+    {
+        $db = new PDO('mysql:host=localhost;dbname=proyecto_db;charset=utf8','root','');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(Exception $e)
+    {
+        echo "An error ocurred.";
+    }
+  ?>
+
+  <?php
+    //require_once("../db/connection.php");
 
     if(isset($_POST['submitted'])){
 
       $value = $_POST['tablas']; 
 
       switch($value){
-        case "documentos_estudiante" : echo "<b>Tabla Seleccionada: </b> Documentos Estudiantes <br>"; break;
-        case "catedratico_postulado" : echo "<b>Tabla Seleccionada: </b> Catedráticos Postulados <br>"; break;
-        case "empleado_laborando"    : echo "<b>Tabla Seleccionada: </b> Empleados Laborando <br>"; break;
-        case "asesores"              : echo "<b>Tabla Seleccionada: </b> Asesores <br>"; break;
-        case "catedraticos"          : echo "<b>Tabla Seleccionada: </b> Catedráticos <br>"; break;
-        case "asignacion_asesor"     : echo "<b>Tabla Seleccionada: </b> Asignaciones Asesores <br>"; break;
-        case "asignacion_catedratico": echo "<b>Tabla Seleccionada: </b> Asignaciones Catedráticos <br>"; break;
+        case "empleado_laborando": echo "<b>Tabla Seleccionada: </b> Empleados laborando<br>"; break;
       }
       
       //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
 
       $stmt = $db->query("select * from $value");
-      $rows = "";
+      
       while($row = $stmt->fetchAll())
       {
           $rows[] = $row;
       }
-      /*
+
       //tabla de resultados
       $sql = "SELECT * FROM empleado_laborando;";
       $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
@@ -174,17 +179,10 @@
       }
 
       echo '</table>';
-      */
-
-      $data = json_encode($rows, JSON_PRETTY_PRINT);    
-      echo "<pre>"; 
-      echo var_export($data);
-      echo "<br><br>";
-
+/*
+      $data = json_encode($rows);     
       $to_normal = json_decode($data, true);
-      print_r($to_normal);
-      echo "<br><br></pre>";
-
+*/
       $stmt = null;
       $db = null;
     }   
