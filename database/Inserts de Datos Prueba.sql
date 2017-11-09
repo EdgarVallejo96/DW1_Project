@@ -21,6 +21,8 @@ false, false, false, 'catedraticopostulado@gmail.com', 'postulado457965@unis.edu
 
 
 
+
+
 /* ----------QUERIES PARA PROBAR LOS INSERTS. -----------*/
 select es_asesor from Empleado_Laborando order by id_empleado DESC limit 1;
 select * from roles_de_sistema;
@@ -37,4 +39,5 @@ INSERT INTO `credenciales_sistema` (`id_sistema`, `password_sistema`) VALUES ('1
 select * from credenciales_sistema;
 
 rollback;
+commit;
 

@@ -92,7 +92,7 @@ switch(empty($POST)) {
 
       <div class="title-bar">
         <div class="container">
-            <h1>AGREGAR ASESOR</h1>
+            <h1>ASIGNAR ASESOR A ESTUDIANTE</h1>
             
         </div>
     </div>

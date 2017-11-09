@@ -144,7 +144,7 @@ switch(empty($POST)) {
 
     <div class="title-bar">
             <div class="container formulariosGenerales">
-                <h1>CATEDRÁTICOS</h1>
+                <h1>REGISTRAR CATEDRÁTICO POSTULADO</h1>
                 
             </div>
         </div>
