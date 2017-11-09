@@ -133,14 +133,14 @@
                   </div><!--/.nav-collapse -->
                 </div>
               </nav>
-<head>
+<header>
     <div class="title-bar">
             <div class="container formulariosGenerales">
                 <h1>REGISTRAR CATEDRÁTICO POSTULADO</h1>
                 
             </div>
         </div>
-</head>
+</header>
 
 <main>
    <div class="main">
