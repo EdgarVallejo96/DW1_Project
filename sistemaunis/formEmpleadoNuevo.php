@@ -1,3 +1,127 @@
+<?php  
+ $message = '';  
+ $error = '';  
+
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
+    case empty($_POST["carne"]):
+    $error = "<label class='text-danger'>Ingrese carné</label>";
+    break;
+
+    case empty($_POST["nombres"]):
+    $error = "<label class='text-danger'>Ingrese nombres</label>";
+    break;
+
+    case empty($_POST["apellidos"]):
+    $error = "<label class='text-danger'>Ingrese apellidos</label>";  
+    break;
+
+    case empty($_POST["dpi"]):
+    $error = "<label class='text-danger'>Indique dpi</label>";
+    break;
+
+    case empty($_POST["nit"]):
+    $error = "<label class='text-danger'>Indique nit</label>";
+    break;
+
+    case empty($_POST["fecha_nacimiento"]):
+    $error = "<label class='text-danger'>Indique fecha</label>";
+    break;
+
+    case empty($_POST["profesion"]):
+    $error = "<label class='text-danger'>Ingrese profesion</label>";
+    break;
+
+    case empty($_POST["numero_colegiado"]):
+    $error = "<label class='text-danger'>Indique colegiado</label>";
+    break;
+
+    case empty($_POST["colegio_profesional"]):
+    $error = "<label class='text-danger'>ndique colegio</label>";
+    break;
+
+    case empty($_POST["estado_civil"]):
+    $error = "<label class='text-danger'>ndique estado</label>";
+    break;
+
+    case empty($_POST["nacionalidad"]):
+    $error = "<label class='text-danger'>ndique nacionalidad</label>";
+    break;
+
+    case empty($_POST["es_asesor"]):
+    $error = "<label class='text-danger'>ndique asesor</label>";
+    break;
+
+    case empty($_POST["es_catedratico"]):
+    $error = "<label class='text-danger'>ndique catedratico</label>";
+    break;
+
+    case empty($_POST["tipo_correo1"]):
+    $error = "<label class='text-danger'>Ingrese correo</label>";
+    break;
+
+    case empty($_POST["tipo_correo2"]):
+    $error = "<label class='text-danger'>Ingrese correo</label>";
+    break;
+
+    case empty($_POST["Address"]):
+    $error = "<label class='text-danger'>Ingrese correo</label>";
+    break;
+
+    case empty($_POST["tipo_telefono1"]):
+    $error = "<label class='text-danger'>Ingrese telefono</label>";
+    break;
+
+    case empty($_POST["tipo_telefono2"]):
+    $error = "<label class='text-danger'>Ingrese telefono</label>";
+    break;
+}
+
+     
+    if(file_exists('empleado.json'))  
+    {  
+        
+         $current_data = file_get_contents('empleado.json');  
+         $array_data = json_decode($current_data, true);  
+         $extra = array( 
+            'carne'     =>     $_POST["carne"],
+              'nombres'               =>     $_POST["nombres"],  
+              'apellidos'          =>     $_POST["apellidos"],                
+              'dpi'               =>     $_POST["dpi"],  
+              'nit'          =>     $_POST["nit"],  
+              'fecha_nacimiento'     =>     $_POST["fecha_nacimiento"],
+              'profesion'               =>     $_POST["profesion"],  
+              'numero_colegiado'          =>     $_POST["numero_colegiado"],  
+              'colegio_profesional'     =>     $_POST["colegio_profesional"],
+              'estado_civil'               =>     $_POST["estado_civil"], 
+              'nacionalidad'               =>     $_POST["nacionalidad"], 
+              'es_asesor'               =>     $_POST["es_asesor"], 
+              'es_catedratico'               =>     $_POST["es_catedratico"], 
+              'tipo_correo1'               =>     $_POST["tipo_correo1"],  
+              'tipo_correo2'          =>     $_POST["tipo_correo2"],  
+              'Address'     =>     $_POST["Address"],
+              'tipo_telefono1'     =>     $_POST["tipo_telefono1"],
+              'tipo_telefono2'          =>     $_POST["tipo_telefono2"],
+              
+              
+            );  
+            $array_data[] = $extra;  
+            $final_data = json_encode($array_data, JSON_PRETTY_PRINT); 
+             
+            if(file_put_contents('empleado.json', $final_data))  
+            {  
+                 $message = "<label class='text-success'>Datos enviados con exito</p>";  
+            }  
+       }  
+       else  
+       {  
+            $error = 'JSON File not exits';  
+       } 
+       
+   }
+
+  
+ ?> 
 
 <!DOCTYPE html>
 <html lang="en">

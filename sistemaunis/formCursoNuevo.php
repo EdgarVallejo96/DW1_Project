@@ -1,3 +1,54 @@
+<?php  
+ $message = '';  
+ $error = '';  
+
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
+    case empty($_POST["idcurso"]):
+    $error = "<label class='text-danger'>Ingrese el id de curso</label>";
+    break;
+
+    case empty($_POST["aniocurso"]):
+    $error = "<label class='text-danger'>Ingrese el año</label>";  
+    break;
+
+    case empty($_POST["semestre"]):
+    $error = "<label class='text-danger'>Ingrese semestre</label>";
+    break;
+
+    case empty($_POST["periodos"]):
+    $error = "<label class='text-danger'>Ingrese periodos</label>";
+    break;
+}
+
+   
+    if(file_exists('cursos.json'))  
+    {  
+         $current_data = file_get_contents('cursos.json');  
+         $array_data = json_decode($current_data, true);  
+         $extra = array(  
+              'idcurso'               =>     $_POST['idcurso'],  
+              'aniocurso'          =>     $_POST["aniocurso"],  
+              'semestre'     =>     $_POST["semestre"],
+              'periodos'          =>     $_POST["periodos"]
+                
+         );  
+         $array_data[] = $extra;  
+         $final_data = json_encode($array_data, JSON_PRETTY_PRINT);  
+         if(file_put_contents('cursos.json', $final_data))  
+         {  
+              $message = "<label class='text-success'>Datos enviados con exito</p>";  
+         }  
+    }  
+    else  
+    {  
+         $error = 'JSON File not exits';  
+    } 
+    
+}
+
+  
+ ?> 
 
 <!DOCTYPE html>
 <html lang="en">

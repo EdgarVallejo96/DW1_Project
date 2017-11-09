@@ -1,3 +1,56 @@
+﻿<?php  
+ $message = '';  
+ $error = '';  
+ if(isset($_POST["submit"])){
+switch(empty($POST)) {
+    case empty($_POST["id_alumno"]):
+    $error = "<label class='text-danger'>Ingrese apellidos</label>";  
+    break;
+
+    case empty($_POST["id_asesor"]):
+    $error = "<label class='text-danger'>Ingrese asesor</label>";
+    break;
+
+    case empty($_POST["fecha_asignacion"]):
+    $error = "<label class='text-danger'>Indique fecha</label>";
+    break;
+
+    case empty($_POST["asignacionvigente"]):
+    $error = "<label class='text-danger'>Indique asignacion</label>";
+    break;
+  
+}
+    if(file_exists('asesor.json'))  
+    {  
+        
+         $current_data = file_get_contents('asesor.json');  
+         $array_data = json_decode($current_data, true);  
+         $extra = array( 
+              'id_alumno'               =>     $_POST['id_alumno'],  
+              'id_asesor'          =>     $_POST["id_asesor"],  
+              'fecha_asignacion'     =>     $_POST["fecha_asignacion"],
+              'asignacionvigente'               =>     $_POST["asignacionvigente"],
+              
+              
+         );  
+         $array_data[] = $extra;  
+         $final_data = json_encode($array_data, JSON_PRETTY_PRINT);
+         
+         
+         if(file_put_contents('asesor.json', $final_data))  
+         {  
+              $message = "<label class='text-success'>Datos enviados con exito</p>";  
+         }  
+    }  
+    else  
+    {  
+         $error = 'JSON File no existe';  
+    }
+}
+
+  
+ ?> 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
