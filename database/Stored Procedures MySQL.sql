@@ -98,6 +98,7 @@ BEGIN
    END IF;
    call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
    direccion, telefonocelular, telefonocasa);
+   commit;
 END;
 
 DROP PROCEDURE if exists InsertarCatedraticoPostulado;
@@ -125,6 +126,7 @@ BEGIN
    select id_postulante from catedratico_postulado order by id_postulante DESC limit 1 into id_employee;
    call InsertarDatosGenerales(id_employee, emailpersonal, emailinstitucional,
    direccion, telefonocelular, telefonocasa);
+   commit;
 END;
 
 

@@ -9,7 +9,7 @@
         <label>id_estudiante</label><br>
         <input type="number" name="num1"><br>
         <lable>nombre</label><br>
-        <input type="nombre" name="text1"><br>
+        <input type="text" name="text1"><br>
         <label>edad</label><br>
         <input type="number" name="num2"><br>
         <input type="submit" name="publish" value="Insertar"><br>

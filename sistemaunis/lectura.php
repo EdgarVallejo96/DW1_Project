@@ -97,7 +97,7 @@
     </form>
 
   <?php
-    require_once("/db/connection.php");
+    require_once("/controlador/connection.php");
 
     if(isset($_POST['submitted'])){
 
