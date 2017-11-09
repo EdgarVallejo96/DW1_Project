@@ -1,4 +1,6 @@
-<?php  
+<?php
+    require_once 'controlador/redirectToLogin.php';
+
  $message = '';  
  $error = '';  
  if(isset($_POST["submit"])){

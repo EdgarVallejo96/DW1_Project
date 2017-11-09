@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once 'controlador/config.php';
+require_once 'controlador/redirectToLogin.php';
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT);
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
