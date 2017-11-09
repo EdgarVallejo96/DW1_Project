@@ -38,6 +38,7 @@
               <li><a href="firmas.html">Firmas</a></li>
               <li><a href="ayuda.html">Ayuda</a></li>
               <li><a href="logout.php">Cerrar Sesión</a></li>
+              <li><a href="register.php">Registrar usuario (Solo mantenimiento)</a></li>
               
             </ul>
            
