@@ -1,7 +1,7 @@
 <?php
     require_once("connection.php");
     echo "Hello";
-    $json_file = "http://localhost/DW1_Project/sistemaunis/jsons/catedraticos_post.json";
+    $json_file = "http://localhost/DW1_Project/sistemaunis/json/catedraticos_post.json";
 
     $data = file_get_contents($json_file);
     $array = json_decode($data, true);
