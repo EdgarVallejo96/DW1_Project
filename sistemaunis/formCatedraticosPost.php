@@ -130,7 +130,7 @@ switch(empty($POST)) {
                   </div>
                   <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                      <li><a href="lectura.html">Lectura</a></li>
+                      <li><a href="lectura.php">Lectura</a></li>
                       <li class="active"><a href="mantenimiento.html">Mantenimiento</a></li>
                       <li><a href="firmas.html">Firmas</a></li>
                       <li><a href="ayuda.html">Ayuda</a></li>
