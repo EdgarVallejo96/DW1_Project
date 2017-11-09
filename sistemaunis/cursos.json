@@ -1,0 +1,50 @@
+[
+    {
+        "idcurso": "1",
+        "aniocurso": "0001-01-01",
+        "semestre": "1",
+        "periodos": "1"
+    },
+    {
+        "idcurso": "2",
+        "aniocurso": "0002-02-02",
+        "semestre": "2",
+        "periodos": "2"
+    },
+    {
+        "idcurso": "1234",
+        "aniocurso": "0021-12-31",
+        "semestre": "123",
+        "periodos": "123"
+    },
+    {
+        "idcurso": "1234",
+        "aniocurso": "0021-12-31",
+        "semestre": "123",
+        "periodos": "123"
+    },
+    {
+        "idcurso": "44",
+        "aniocurso": "0004-04-04",
+        "semestre": "4",
+        "periodos": "4"
+    },
+    {
+        "idcurso": "1",
+        "aniocurso": "0001-01-01",
+        "semestre": "1",
+        "periodos": "1"
+    },
+    {
+        "idcurso": "12",
+        "aniocurso": "0001-01-01",
+        "semestre": "11",
+        "periodos": "1"
+    },
+    {
+        "idcurso": "999",
+        "aniocurso": "0009-09-09",
+        "semestre": "99",
+        "periodos": "9"
+    }
+]
