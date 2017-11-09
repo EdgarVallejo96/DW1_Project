@@ -129,7 +129,7 @@
 
       //tabla de resultados
       $sql = "SELECT * FROM empleado_laborando;";
-      $results = mysqli_query(mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName), $sql);
+      $results = mysqli_query(mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME), $sql);
       $resultCheck = mysqli_num_rows($results);	
 
       echo '<table class="table table-striped">
