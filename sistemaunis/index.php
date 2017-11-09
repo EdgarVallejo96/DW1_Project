@@ -17,10 +17,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Check if password is empty
-    if(empty(trim($_POST['password']))){
+    if(empty(trim($_POST["password"]))){
         $password_err = 'Please enter your password.';
     } else{
-        $password = trim($_POST['password']);
+        $password = trim($_POST["password"]);
     }
     
     // Validate credentials
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $stmt->bindParam(':username', $param_username, PDO::PARAM_STR);
             
             // Set parameters
-            $param_username = trim($_POST["username"]);
+            $param_username = trim($_POST['username']);
             
             // Attempt to execute the prepared statement
             if($stmt->execute()){
@@ -41,15 +41,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
                         $password_db = $row["password_sistema"];
-                        if(password_verify($password, $password_db)){
+                        if(!password_verify($password, $password_db)){
+                            // Display an error message if password is not valid
+                            $password_err = 'The password you entered was not valid.';
+                        } else{
                             /* Password is correct, so start a new session and
                             save the username to the session */
                             session_start();
                             $_SESSION['username'] = $username;      
                             header("location: lectura.php");
-                        } else{
-                            // Display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid.';
                         }
                     }
                 } else{
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h2 class="form-signin-heading">Por favor inicie sesión</h2>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-              <input type="text" name="username"class="form-control" value="<?php echo $username; ?>" placeholder="Nombre de usuario">
+              <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder="Nombre de usuario">
               <span class="help-block"><?php echo $username_err; ?></span> 
             </div>
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
