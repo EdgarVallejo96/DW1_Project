@@ -4,102 +4,94 @@
 
 
  if(isset($_POST["submit"])){
-switch(empty($POST)) {
-    case empty($_POST["nombres"]):
-    $error = "<label class='text-danger'>Ingrese nombres</label>";
-    break;
+    switch(empty($POST)) {
+        case empty($_POST["nombres"]):
+        $error = "<label class='text-danger'>Ingrese nombres</label>";
+        break;
 
-    case empty($_POST["apellidos"]):
-    $error = "<label class='text-danger'>Ingrese apellidos</label>";  
-    break;
+        case empty($_POST["apellidos"]):
+        $error = "<label class='text-danger'>Ingrese apellidos</label>";  
+        break;
 
-    case empty($_POST["expediente_completo"]):
-    $error = "<label class='text-danger'>Indique expediente</label>";
-    break;
+        case empty($_POST["expediente_completo"]):
+        $error = "<label class='text-danger'>Indique expediente</label>";
+        break;
 
-    case empty($_POST["entrevista_realizada"]):
-    $error = "<label class='text-danger'>Indique entrevista</label>";
-    break;
+        case empty($_POST["entrevista_realizada"]):
+        $error = "<label class='text-danger'>Indique entrevista</label>";
+        break;
 
-    case empty($_POST["puesto_aspirado"]):
-    $error = "<label class='text-danger'>Indique puesto</label>";
-    break;
+        case empty($_POST["puesto_aspirado"]):
+        $error = "<label class='text-danger'>Indique puesto</label>";
+        break;
 
-    case empty($_POST["acta_aprobacion"]):
-    $error = "<label class='text-danger'>Ingrese acta</label>";
-    break;
+        case empty($_POST["acta_aprobacion"]):
+        $error = "<label class='text-danger'>Ingrese acta</label>";
+        break;
 
-    case empty($_POST["expedienteVCR"]):
-    $error = "<label class='text-danger'>Indique expediente</label>";
-    break;
+        case empty($_POST["expedienteVCR"]):
+        $error = "<label class='text-danger'>Indique expediente</label>";
+        break;
 
-    case empty($_POST["entrevista_VCR"]):
-    $error = "<label class='text-danger'>ndique entrevista</label>";
-    break;
+        case empty($_POST["entrevista_VCR"]):
+        $error = "<label class='text-danger'>ndique entrevista</label>";
+        break;
 
-    case empty($_POST["aprobado_VCR"]):
-    $error = "<label class='text-danger'>ndique entrevista</label>";
-    break;
+        case empty($_POST["aprobado_VCR"]):
+        $error = "<label class='text-danger'>ndique entrevista</label>";
+        break;
 
-    case empty($_POST["tipo_correo1"]):
-    $error = "<label class='text-danger'>Ingrese correo</label>";
-    break;
+        case empty($_POST["tipo_correo1"]):
+        $error = "<label class='text-danger'>Ingrese correo</label>";
+        break;
 
-    case empty($_POST["tipo_correo2"]):
-    $error = "<label class='text-danger'>Ingrese correo</label>";
-    break;
+        case empty($_POST["tipo_correo2"]):
+        $error = "<label class='text-danger'>Ingrese correo</label>";
+        break;
 
-    case empty($_POST["Address"]):
-    $error = "<label class='text-danger'>Ingrese correo</label>";
-    break;
+        case empty($_POST["Address"]):
+        $error = "<label class='text-danger'>Ingrese correo</label>";
+        break;
 
-    case empty($_POST["tipo_telefono1"]):
-    $error = "<label class='text-danger'>Ingrese telefono</label>";
-    break;
+        case empty($_POST["tipo_telefono1"]):
+        $error = "<label class='text-danger'>Ingrese telefono</label>";
+        break;
 
-    case empty($_POST["tipo_telefono2"]):
-    $error = "<label class='text-danger'>Ingrese telefono</label>";
-    break;
-}
-    
-    if( file_exists('catedraticos.json'))  
-    {  
-        
-         $current_data = file_get_contents('catedraticos.json');  
-         $array_data = json_decode($current_data, true);  
-         $extra = array( 
-              'nombres'               =>     $_POST['nombres'],  
-              'apellidos'          =>     $_POST["apellidos"],  
-              'expediente_completo'     =>     $_POST["expediente_completo"],
-              'entrevista_realizada'               =>     $_POST["entrevista_realizada"],  
-              'puesto_aspirado'          =>     $_POST["puesto_aspirado"],  
-              'acta_aprobacion'     =>     $_POST["acta_aprobacion"],
-              'expedienteVCR'               =>     $_POST["expedienteVCR"],  
-              'entrevista_VCR'          =>     $_POST["entrevista_VCR"],  
-              'aprobado_VCR'     =>     $_POST["aprobado_VCR"],
-              'tipo_correo1'               =>     $_POST["tipo_correo1"],  
-              'tipo_correo2'          =>     $_POST["tipo_correo2"],  
-              'Address'     =>     $_POST["Address"],
-              'tipo_telefono1'     =>     $_POST["tipo_telefono1"],
-              'tipo_telefono2'          =>     $_POST["tipo_telefono2"],
-              
-              
-            );  
-            $array_data[] = $extra;  
-            $final_data = json_encode($array_data, JSON_PRETTY_PRINT);  
-            if(file_put_contents('catedraticos.json', $final_data))  
-            {  
-                 $message = "<label class='text-success'>Datos enviados con exito</p>";  
-            }  
-       }  
-       else  
-       {  
-            $error = 'JSON File no existe';  
-       }
+        case empty($_POST["tipo_telefono2"]):
+        $error = "<label class='text-danger'>Ingrese telefono</label>";
+        break;
     }
- 
-  
- ?> 
+    
+         $json_array = array( 
+              'nombres'              =>     $_POST['nombres'],  
+              'apellidos'            =>     $_POST["apellidos"],  
+              'expediente_completo'  =>     $_POST["expediente_completo"],
+              'entrevista_realizada' =>     $_POST["entrevista_realizada"],  
+              'puesto_aspirado'      =>     $_POST["puesto_aspirado"],  
+              'acta_aprobacion'      =>     $_POST["acta_aprobacion"],
+              'expedienteVCR'        =>     $_POST["expedienteVCR"],  
+              'entrevista_VCR'       =>     $_POST["entrevista_VCR"],  
+              'aprobado_VCR'         =>     $_POST["aprobado_VCR"],
+              'tipo_correo1'         =>     $_POST["tipo_correo1"],  
+              'tipo_correo2'         =>     $_POST["tipo_correo2"],  
+              'Address'              =>     $_POST["Address"],
+              'tipo_telefono1'       =>     $_POST["tipo_telefono1"],
+              'tipo_telefono2'       =>     $_POST["tipo_telefono2"],
+        );  
+
+            $json_format = json_encode($json_array, JSON_PRETTY_PRINT);  
+
+            $json_file = '../sistemaunis/jsons/catedraticos_post.json';
+
+            if(file_put_contents($json_file, $json_format)){
+                echo "Archivo JSON creado.";
+            } else {
+                echo "Error creando arhivo JSON.";
+            }
+
+            include '../sistemaunis/controlador/c_catedraticos_post.php';
+ }
+?> 
 
 
 <!DOCTYPE html>
