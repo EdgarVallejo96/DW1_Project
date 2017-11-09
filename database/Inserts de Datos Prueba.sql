@@ -34,6 +34,7 @@ select * from direcciones;
 select * from correos;
 select * from catedratico_postulado;
 select * from credenciales_sistema;
+select * from users;
 
 INSERT INTO `credenciales_sistema` (`id_sistema`, `password_sistema`) VALUES ('1002', 'patito');
 select * from credenciales_sistema;
