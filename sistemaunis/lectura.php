@@ -88,19 +88,7 @@
     </form>
 
   <?php
-    try 
-    {
-        $db = new PDO('mysql:host=localhost;dbname=proyecto_db;charset=utf8','root','');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(Exception $e)
-    {
-        echo "An error ocurred.";
-    }
-  ?>
-
-  <?php
-    //require_once("../db/connection.php");
+    
 
     if(isset($_POST['submitted'])){
 
@@ -110,15 +98,12 @@
         case "empleado_laborando": echo "<b>Tabla Seleccionada: </b> Empleados laborando<br>"; break;
       }
       
+      include "../sistemaunis/controlador/c_lectura.php";
+
       //echo "<b>Tabla Seleccionada: </b>" . $value . "<br>";
-
-      $stmt = $db->query("select * from $value");
       
-      while($row = $stmt->fetchAll())
-      {
-          $rows[] = $row;
-      }
 
+      /*
       //tabla de resultados
       $sql = "SELECT * FROM empleado_laborando;";
       $results = mysqli_query(mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME), $sql);
@@ -171,12 +156,7 @@
       }
 
       echo '</table>';
-/*
-      $data = json_encode($rows);     
-      $to_normal = json_decode($data, true);
-*/
-      $stmt = null;
-      $db = null;
+      */
     }   
   ?>
   </div>
