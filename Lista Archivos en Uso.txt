@@ -1,15 +1,15 @@
 BS_theme/
-    ayuda.html
+    ayuda.php
     borrar.html
     error404.html
-    firmas.html
+    firmas.php
     formAsesorNuevo.html
     formCatedraticoPost.html
     formCursoNuevo.html
     formEmpleadoNuevo.html
     index.html
     lectura.html
-    mantenimiento.html
+    mantenimiento.php
     modificar.html
     modificarAsesor.html
     modificarCurso.html
