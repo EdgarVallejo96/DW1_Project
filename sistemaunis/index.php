@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
 
   <body>
-
+<main>
     <div class="container container-signin">
           <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h2 class="form-signin-heading">Por favor inicie sesión</h2>
@@ -99,6 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           </form>
     
         </div> <!-- /container -->
+</main>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>

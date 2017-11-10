@@ -463,6 +463,26 @@ CREATE TABLE `telefonos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'Kevin', 'patito'),
+(2, 'Edgar', '$2y$10$IVnnp98rgxYnvLLk95VX9.LeOLh7N8ww3shoaTo8HhOW6zbPmpmJK'),
+(3, 'Diego', '$2y$10$Kqs4xO4hTBov2K6tKqLLHeOtDWJwyeY2Y16GpioPhtgl3RQ/BZswu'),
+(4, 'Manu', '$2y$10$UgIRfkfOlNif/IcdotOhouDDJhZM9ORI5sXtb7GX5Xwlk0c0M6y8u');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -655,6 +675,13 @@ ALTER TABLE `roles_de_sistema`
 --
 ALTER TABLE `telefonos`
   ADD PRIMARY KEY (`numero`);
+  
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -688,6 +715,11 @@ ALTER TABLE `empleado_laborando`
   
 ALTER TABLE `DIRECCIONES`
   MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
