@@ -36,7 +36,7 @@
                       <li><a href="mantenimiento.php">Mantenimiento</a></li>
                       <li class="active"><a href="firmas.php">Firmas</a></li>
                       <li><a href="ayuda.php">Ayuda</a></li>
-                      <li><a href="index.php">Cerrar Sesión</a></li>
+                      <li><a href="logout.php">Cerrar Sesión</a></li>
                       
                     </ul>
                    
