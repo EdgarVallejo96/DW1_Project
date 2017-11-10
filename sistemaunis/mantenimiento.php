@@ -24,9 +24,9 @@
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a href="lectura.php">Lectura</a></li>
-              <li class="active"><a href="mantenimiento.html">Mantenimiento</a></li>
-              <li><a href="firmas.html">Firmas</a></li>
-              <li><a href="ayuda.html">Ayuda</a></li>
+              <li class="active"><a href="mantenimiento.php">Mantenimiento</a></li>
+              <li><a href="firmas.php">Firmas</a></li>
+              <li><a href="ayuda.php">Ayuda</a></li>
               <li><a href="index.php">Cerrar Sesión</a></li>
               
             </ul>
@@ -46,8 +46,8 @@
               <h3>Catedráticos Postulados</h3>
               <p>Registrar, modificar o dar de baja a un postulante para catedrático.</p>
               <a href="formCatedraticosPost.php" class="btn btn-primary" role="button">Registrar</a> 
-                <a href="modificarFormCat.html" class="btn btn-default" role="button">Modificar</a>
-                <a href="borrar.html" class="btn btn-default" role="button">Dar de baja</a>
+                <a href="modificarFormCat.php" class="btn btn-default" role="button">Modificar</a>
+                <a href="borrar.php" class="btn btn-default" role="button">Dar de baja</a>
             
             </div>
           </div>
@@ -60,8 +60,8 @@
                 <h3>Empleados</h3>
                 <p>Registrar, modificar o dar de baja a un empleado (Asesor, Catedrático u otro).</p>
                 <a href="formEmpleadoNuevo.php" class="btn btn-primary" role="button">Registrar</a> 
-                    <a href="modificarFormEmp.html" class="btn btn-default" role="button">Modificar</a>
-                    <a href="borrar.html" class="btn btn-default" role="button">Dar de baja</a>
+                    <a href="modificarFormEmp.php" class="btn btn-default" role="button">Modificar</a>
+                    <a href="borrar.php" class="btn btn-default" role="button">Dar de baja</a>
                 
               </div>
             </div>
@@ -76,8 +76,8 @@
                 <h3>Asignaciones de Asesores</h3>
                 <p>Asignar un asesor a un alumno, dar de baja una asignación o borrar una asignación.</p>
                 <a href="formAsesorNuevo.php" class="btn btn-primary" role="button">Asignar</a> 
-                    <a href="modificarAsesor.html" class="btn btn-default" role="button">Dar de baja</a>
-                    <a href="borrar.html" class="btn btn-default" role="button">Eliminar asignación</a>
+                    <a href="modificarAsesor.php" class="btn btn-default" role="button">Dar de baja</a>
+                    <a href="borrar.php" class="btn btn-default" role="button">Eliminar asignación</a>
                 
               </div>
             </div>
@@ -91,8 +91,8 @@
                 <h3>Asignación de Cursos a Catedráticos</h3>
                 <p>Asignar, modificar o dar de baja a un catedrático.</p>
                 <a href="formCursoNuevo.php  " class="btn btn-primary" role="button">Asignar curso</a> 
-                    <a href="modificarCurso.html" class="btn btn-default" role="button">Modificar asignación</a>
-                    <a href="borrar.html" class="btn btn-default" role="button">Eliminar asignación</a>
+                    <a href="modificarCurso.php" class="btn btn-default" role="button">Modificar asignación</a>
+                    <a href="borrar.php" class="btn btn-default" role="button">Eliminar asignación</a>
                   
             </div>
             </div>

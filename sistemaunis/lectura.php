@@ -25,9 +25,9 @@
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="lectura.php">Lectura</a></li>
-              <li><a href="mantenimiento.html">Mantenimiento</a></li>
-              <li><a href="firmas.html">Firmas</a></li>
-              <li><a href="ayuda.html">Ayuda</a></li>
+              <li><a href="mantenimiento.php">Mantenimiento</a></li>
+              <li><a href="firmas.php">Firmas</a></li>
+              <li><a href="ayuda.php">Ayuda</a></li>
               <li><a href="logout.php">Cerrar Sesión</a></li>
               <li><a href="register.php">Registrar usuario (Solo mantenimiento)</a></li>
               

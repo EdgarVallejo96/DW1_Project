@@ -26,7 +26,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Inicio</a></li>
-            <li><a href="firmas.html">Firmas</a></li>
+            <li><a href="firmas.php">Firmas</a></li>
             <li><a href="administracion.html">Administración</a></li>
             <li><a href="maspruebas.php">Ayuda</a></li>
           </ul>
