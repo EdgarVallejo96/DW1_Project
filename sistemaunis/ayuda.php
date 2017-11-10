@@ -40,7 +40,7 @@
             </div><!--/.nav-collapse -->
           </div>
         </nav>
-
+<article>
     <div class="section-b">
         <div class="container">
             <h4>FAQ</h4>
@@ -57,7 +57,12 @@
                                   </div>
                                   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        El usuario debe iniciar sesión con las credenciales que le fueron asignadas.
+                                        Debe ingresar:
+                                        Correo electrónico asignado para el usuario.
+                                        Contraseña
+                                        Al haber llenado los campos con los datos anteriores, debe dar click en “Iniciar Sesión”.
+                                        
                                     </div>
                                   </div>
                                 </div>
@@ -65,13 +70,16 @@
                                   <div class="panel-heading" role="tab" id="headingTwo">
                                     <h4 class="panel-title">
                                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        ¿Cómo firmo?
+                                        ¿Cómo funciona el mantenimiento?
                                       </a>
                                     </h4>
                                   </div>
                                   <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        La página de mantenimiento tiene la función de mostrar al encargado las diferentes operaciones que puede efectuar con los catedráticos, asesores, empleados y cursos.
+                                        
+                                        Se muestra un menú donde se encuentran las operaciones de: registro, asignación, modificación y eliminación.
+                                        
                                     </div>
                                   </div>
                                 </div>
@@ -79,16 +87,37 @@
                                   <div class="panel-heading" role="tab" id="headingThree">
                                     <h4 class="panel-title">
                                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        ¿Cómo agrego usuarios?
+                                        ¿Cómo ver formularios?
                                       </a>
                                     </h4>
                                   </div>
                                   <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                     <div class="panel-body">
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        Dar click en la pestaña de mantemiento y seleccionar cualquier opción de asignar o registrar formulario que permite asignar un asesor a un alumno a través de los IDs.
                                     </div>
                                   </div>
                                 </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingFour">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                          ¿Cómo funcionan las firmas?
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                      <div class="panel-body">
+                                          Esta página consta de un formulario donde se ingresan los siguientes datos:
+                                          ID de la asignación del curso del catedrático
+                                          Fecha del período de clase
+                                          La hora de la clase impartida
+                                          Tema impartido
+                                          
+                                          Todo con el fin de poder registrarlos como una constancia de la clase impartida por el catedrático.
+                                          
+                                      </div>
+                                    </div>
+                                  </div>
                               </div>    
                 </div>
                
@@ -98,7 +127,7 @@
     
     
 
-
+  </article>
   
         
 

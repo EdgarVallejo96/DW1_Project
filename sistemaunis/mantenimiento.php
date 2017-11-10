@@ -35,6 +35,8 @@
         </div>
       </nav>
       <br>
+      <main>
+        <section>
       <div  class="container">
       <div class="row">
           
@@ -99,7 +101,8 @@
           </div>
       </div>
     </div>
-
+  </section>
+  </main>
     <footer>
         <div class="container">
             <p>Copyright &copy; 2017 unis-sitemas</p>

@@ -37,8 +37,7 @@ require_once 'controlador/redirectToLogin.php';
             </div><!--/.nav-collapse -->
           </div>
         </nav>
-
-
+<main>
     <div class="main">
             <div class="row">
                 <div class="col-md-8">
@@ -80,6 +79,9 @@ require_once 'controlador/redirectToLogin.php';
         <div class="container">
             <p>Copyright &copy; 2017 unis-sistemas</p>
         </div>
+
+
+      </main>
     </footer>
     
     <script src="bower_components/jquery/dist/jquery.js"></script>
